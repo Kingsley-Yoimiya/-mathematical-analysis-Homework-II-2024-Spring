@@ -1,0 +1,96 @@
+%\special{dvipdfmx:config z 0}% 取消压缩，加快编译速度
+\documentclass[UTF-8]{ctexart}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=black,      
+	urlcolor=red,
+	citecolor=black,
+}
+\usepackage{geometry}
+\geometry{a4paper,centering,scale=0.80}
+\usepackage[format=hang,font=small,textfont=it]{caption}
+\usepackage[nottoc]{tocbibind}
+\usepackage{algorithm}  
+\usepackage{algorithmicx}  
+\usepackage{algpseudocode}
+\usepackage{prettyref}
+\usepackage{framed}
+\setlength{\parindent}{2em}
+\usepackage{indentfirst}
+\usepackage[framemethod=TikZ]{mdframed}
+\newcounter{ques}[section]
+\renewcommand{\theques}{\arabic{section}.\arabic{ques}}
+\newcommand{\setParDis}{\setlength {\parskip} {0.3cm} }
+\newcommand{\setParDef}{\setlength {\parskip} {0pt} }
+\setParDis% 调整这一个subsection的段落间距
+%\setParDef%恢复间距
+
+\newenvironment{ques}[1][]{
+	\refstepcounter{ques}
+	\mdfsetup{
+		frametitle={
+			\tikz[baseline=(current bounding box.east), outer sep=0pt]
+			\node[anchor=east,rectangle,fill=blue!20]
+			{\strut Problem~\theques\ifstrempty{#1}{}{:~#1}};},
+		innertopmargin=10pt,linecolor=blue!20,
+		linewidth=2pt,topline=true,
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax
+}{\end{mdframed}}
+
+\newcounter{Thm}[section]
+\renewcommand{\theThm}{\arabic{section}.\arabic{Thm}}
+\newenvironment{Thm}[1][]{
+	\refstepcounter{Thm}
+	\mdfsetup{
+		frametitle={
+			\tikz[baseline=(current bounding box.east), outer sep=0pt]
+			\node[anchor=east,rectangle,fill=blue!20]
+			{\strut Theorem~\theThm\ifstrempty{#1}{}{:~#1}};},
+		innertopmargin=10pt,linecolor=blue!20,
+		linewidth=2pt,topline=true,
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax
+}{\end{mdframed}}
+
+\newcounter{Defi}[section]
+\renewcommand{\theDefi}{\arabic{section}.\arabic{Defi}}
+\newenvironment{Defi}[1][]{
+	\refstepcounter{Defi}
+	\mdfsetup{
+		frametitle={
+			\tikz[baseline=(current bounding box.east), outer sep=0pt]
+			\node[anchor=east,rectangle,fill=blue!20]
+			{\strut Definition~\theDefi\ifstrempty{#1}{}{:~#1}};},
+		innertopmargin=10pt,linecolor=blue!20,
+		linewidth=2pt,topline=true,
+		frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+	}
+	\begin{mdframed}[]\relax
+}{\end{mdframed}}
+
+\newrefformat{qlt}{\underline{性质 \ref{#1}}}
+\newcommand{\tpf}[2]{\begin{ques}[#1]{\kaishu #2}\end{ques}}
+\newcommand{\pf}[1]{\begin{ques}{\kaishu #1}\end{ques}}
+\newcommand{\tthm}[2]{\begin{Thm}[#1]{\kaishu #2}\end{Thm}}
+\newcommand{\thm}[1]{\begin{Thm}{\kaishu #1}\end{Thm}}
+\newcommand{\tdefi}[2]{\begin{Defi}[#1]{\kaishu #2}\end{Defi}}
+\newcommand{\defi}[1]{\begin{Defi}{\kaishu #1}\end{Defi}}
+\newcommand{\opf}[1]{{\kaishu{#1}}}
+\title{数学分析 I 作业（2023. Fall）}
+\author{\texttt{As-The-Wind}}
+
+\date{2024 年 2 月 19 日 $\rightarrow$ \today}
