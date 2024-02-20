@@ -10,6 +10,91 @@
 
 \section{2024.2.19 作业}
 
+\begin{ques}
+使用积分计算： $\displaystyle \lim _{n\rightarrow \infty }\frac{\sqrt[n]{n!}}{n}$。
+
+\end{ques}
+
+
+
+\begin{equation*}
+\begin{aligned}
+\lim _{n\rightarrow \infty }\frac{\sqrt[n]{n!}}{n} = & \lim _{n\rightarrow \infty }\frac{e^{\frac{1}{n}(\ln 1+\cdots +\ln n)}}{n}\\
+= & \lim _{n\rightarrow \infty }\frac{e^{\frac{1}{n}\left(\ln\frac{1}{n} +\cdots +\ln 1\right) +\ln n}}{n}\\
+= & \lim _{n\rightarrow \infty }\frac{e^{\left(\int _{0}^{1}\ln x\mathrm{d} x\right) +\ln n}}{n}\\
+= & \lim _{n\rightarrow \infty }\frac{e^{-1+\ln n}}{n}\\
+= & e^{-1}
+\end{aligned}
+\end{equation*}
+
+
+\begin{ques}
+设序列 $\{a_{n} \}$ 满足 $\lim _{n\rightarrow \infty }\frac{a_{n}}{n^{\alpha }} =1$ $(\alpha  >0)$，使用积分计算 $\displaystyle \lim _{n\rightarrow \infty }\frac{1}{n^{1+\alpha }}( a_{1} +\cdots +a_{n})$。
+
+\end{ques}
+
+
+因为 $\lim _{n\rightarrow \infty }\frac{a_{n}}{n^{\alpha }} =1$，于是当 $\displaystyle n\rightarrow \infty $ 时，$\displaystyle a_{n} \sim n^{\alpha }$。
+
+进而
+
+
+\begin{equation*}
+\begin{aligned}
+\lim _{n\rightarrow \infty }\frac{1}{n^{1+\alpha }}( a_{1} +\cdots +a_{n}) = & \lim _{n\rightarrow \infty }\frac{1}{n}\frac{1}{n^{\alpha }}\sum _{i=1}^{n} i^{\alpha }\\
+= & \lim _{n\rightarrow \infty }\frac{1}{n}\sum _{i=1}^{n}\left(\frac{i}{n}\right)^{\alpha }\\
+= & \int _{0}^{1} x^{\alpha }\mathrm{d} x\\
+= & \frac{1}{\alpha +1} x^{\alpha +1} |_{0}^{1}\\
+= & \frac{1}{\alpha +1}
+\end{aligned}
+\end{equation*}
+
+
+
+
+\begin{ques}
+设 $\displaystyle f( x) \in R[ 0,1] ,\int _{0}^{1} f( x)\mathrm{d} x >0$，证明：$\displaystyle \exists ( \alpha ,\beta ) \subset [ 0,1] ,\ s.t.\ f( x)  >0,x\in ( \alpha ,\beta )$。
+
+\end{ques}
+
+
+考虑反证法，如果 $\displaystyle \forall ( \alpha ,\beta ) \subset [ 0,1] \ s.t.\ \exists \xi \in ( \alpha ,\beta ) \ s.t.\ f( \xi ) \leqslant 0$，那么
+
+考虑任一 $\displaystyle [ 0,1]$ 分割 $\displaystyle \Delta :0=x_{0} < x_{1} < \dotsc < x_{n} =1$，对于根据假设可以选出一组 $\displaystyle \{\xi _{i}\} ,\xi _{i} \in ( x_{i-1} ,x_{i})$，满足 $\displaystyle \forall i,f( \xi _{i}) \leqslant 0$，又 $\displaystyle f( x) \in R[ 0,1]$，有
+
+
+\begin{equation*}
+\int _{0}^{1} f( x)\mathrm{d} x=\lim _{n\rightarrow \infty }\sum f( \xi _{i}) \Delta x_{i} \leqslant 0
+\end{equation*}
+
+
+与原来条件矛盾。\qed 
+
+
+
+\begin{ques}
+设 $\displaystyle f( x)$ 为 $\displaystyle \mathbb{R}$ 上的连续凸函数，$\displaystyle g( x)$ 为 $\displaystyle \mathbb{R}$ 上连续函数，证明：当 $\displaystyle a >0$ 时，$\displaystyle f\left(\frac{1}{a}\int _{0}^{a} g( t)\mathrm{d} t\right) \leqslant \frac{1}{a}\int _{0}^{a} f( g( t))\mathrm{d} t$。
+
+\end{ques}
+
+
+取任一分割 $\displaystyle \Delta $，有
+
+
+
+
+\begin{equation*}
+\begin{aligned}
+f\left(\frac{1}{a}\int _{0}^{a} g( t)\mathrm{d} t\right) & =\lim _{n\rightarrow \infty } f\left(\frac{1}{a}\sum g( \xi _{i}) \Delta x_{i}\right)\\
+ & =\lim _{n\rightarrow \infty } f\left(\sum g( \xi _{i})\frac{\Delta x_{i}}{a}\right)\\
+ & \leqslant \lim _{n\rightarrow \infty }\sum \frac{\Delta x_{i}}{a} f( g( \xi _{i}))\\
+ & =\frac{1}{a}\int _{0}^{a} f( g( t))\mathrm{d} t\qed 
+\end{aligned}
+\end{equation*}
+
+
+
+
 
 \ifx\allfiles\undefined
 \end{document}
