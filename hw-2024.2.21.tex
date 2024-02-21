@@ -1,0 +1,149 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.2.21 作业}
+
+\begin{ques}
+	设函数 $\displaystyle f( x)$ 在 $\displaystyle [ a,b]$ 有定义，记 $\displaystyle f^{+}( x) =\max( f( x) ,0) ;f^{-}( x) =-\min( f( x) ,0)$。证明：$\displaystyle f( x) \in R[ a,b]$ 的充分必要条件是 $\displaystyle f^{+}( x)$ 和 $\displaystyle f^{-}( x)$ 在 $\displaystyle [ a,b]$ 可积。
+\end{ques}
+
+
+
+记 $\displaystyle f( x)$ 的零点构成集合为 $\displaystyle \Delta _{0}$。
+
+先证 $\displaystyle \Leftarrow $：
+
+$\displaystyle f^{+}( x)$ 和 $\displaystyle f^{-}( x)$ 在 $\displaystyle [ a,b]$ 可积，那么 $\displaystyle f( x) =f^{+}( x) -f^{-}( x)$ 也是可积的。
+
+证明 $\displaystyle \Rightarrow $：
+
+考虑 $\displaystyle f( x)$ 的任一分割 $\displaystyle \Delta :a=x_{0} < x_{1} < \cdots < x_{n} =b$，对于 $\displaystyle [ x_{i-1} ,x_{i}]$ 的振幅 $\displaystyle \omega _{i}$ 有 $\displaystyle \omega _{i}\left( f^{+}\right) \leqslant \omega _{i}( f) ,\omega _{i}\left( f^{-}\right) \leqslant \omega _{i}( f)$，当 $\displaystyle f( x) \in R[ a,b]$ 时，有 $\displaystyle \forall \varepsilon  >0,\exists \Delta $ 使得 $\displaystyle \sum \omega _{i}( f) \Delta x_{i} < \varepsilon $，也就是$ $$\displaystyle \sum \omega _{i}\left( f^{+}\right) \Delta x_{i} < \varepsilon ,\sum \omega _{i}\left( f^{-}\right) \Delta x_{i} < \varepsilon $，于是 $\displaystyle f^{+} ,f^{-} \in R[ a,b]$。\qed 
+
+
+
+
+
+\begin{ques}
+	（1）若 $\displaystyle f( x) \in R[ a,b]$，是否有 $\displaystyle |f( x) |\in R[ a,b]$？反之如何？\\（2）若 $\displaystyle f( x) \in R[ a,b]$，是否有 $\displaystyle f( x)^{2} \in R[ a,b]$？反之如何？
+
+\end{ques}
+
+
+（1）是；反之否。
+
+考虑 $\displaystyle [ a,b]$ 上一组分割 $\displaystyle \Delta $，对于 $\displaystyle [ x_{i-1} ,x_{i}]$ 上任意 $\displaystyle c,d$，有 $\displaystyle ||f( c) |-|f( d) ||\leqslant |f( c) -f( d) |$。
+
+因为 $\displaystyle f( x) \in R[ a,b]$，于是 $\displaystyle \forall \varepsilon  >0,\exists \Delta \ s.t.\ \sum \omega _{i}( f) \Delta x_{i} \leqslant \varepsilon $，进而 $\displaystyle \sum \omega _{i}( |f|) \Delta x_{i} \leqslant \varepsilon $。
+
+
+
+考虑 $\displaystyle f( x) =\begin{cases}
+1 & ,x\in \mathbb{Q}\\
+-1 & ,x\notin \mathbb{Q}
+\end{cases} ,x\in [ 0,1]$，显然 $\displaystyle |f( x) |\in R[ 0,1] ,$但是 $\displaystyle f( x)$ 在 $\displaystyle [ 0,1]$ 处处间断，不可积。
+
+
+
+
+
+（2）是；反之否。
+
+当 $\displaystyle f( x) \in R[ a,b]$，$\displaystyle f( x)$ 有界，记 $\displaystyle |f( x) |\leqslant M$。同时 $\displaystyle \forall \varepsilon  >0,\exists \Delta \ s.t.\ \sum \omega _{i}( f) \Delta x_{i} \leqslant \varepsilon $。
+
+而 $\displaystyle \omega _{i}\left( f^{2}\right) \leqslant 2\omega _{i} M,\sum \omega _{i}\left( f^{2}\right) \Delta x_{i} \leqslant 2M\varepsilon $，因为 $\displaystyle 2M$ 是常数，于是 $\displaystyle f^{2}( x) \in R[ a,b]$。
+
+
+
+反之，同样考虑 $\displaystyle f( x) =\begin{cases}
+1 & ,x\in \mathbb{Q}\\
+-1 & ,x\notin \mathbb{Q}
+\end{cases} ,x\in [ 0,1]$ 即可。
+
+
+
+
+
+\begin{ques}
+	设函数 $\displaystyle f( x) ,g( x) \in R[ a,b]$，记 $\displaystyle \Delta :a=x_{0} < x_{1} < \cdots < x_{n} =b$，为 $\displaystyle [ a,b]$ 的分割；并取 $\displaystyle \xi _{i} ,\eta _{i} \in [ x_{i-1} ,x_{i}] ,i=1,2,\cdots ,n$，试证明：$\displaystyle \lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i=1}^{n} f( \xi _{i}) g( \eta _{i}) \Delta x_{i} =\int _{a}^{b} f( x) g( x)\mathrm{d} x$。
+
+\end{ques}
+
+
+首先 $\displaystyle \int _{a}^{b} f( x) g( x)\mathrm{d} x=\lim _{\lambda ( \Delta )\rightarrow 0}\sum f( \xi _{i}) g( \xi _{i}) \Delta x_{i}$，因为 $\displaystyle f( x) \in R[ a,b]$，于是存在 $\displaystyle M$ 使得 $\displaystyle |f( x) |\leqslant M$。
+
+进而
+
+
+\begin{equation*}
+\begin{aligned}
+	\left| \sum _{i=1}^{n} f( \xi _{i}) g( \eta _{i}) \Delta x_{i} -\int _{a}^{b} f( x) g( x)\mathrm{d} x\right|  & =\left| \sum f( \xi _{i})( g( \xi _{i}) -g( \eta _{i})) \Delta x_{i}\right| \\
+	& \leqslant M\left| \sum ( g( \xi _{i}) -g( \eta _{i})) \Delta x_{i}\right| \\
+	& \leqslant M\omega _{i}( g) \Delta x_{i}
+\end{aligned}
+\end{equation*}
+
+因为 $\displaystyle g( x) \in R[ a,b]$ 以及 $\displaystyle \varepsilon $ 任意性，可得 $\displaystyle \forall \varepsilon  >0,\exists \Delta \ s.t.\left| \sum _{i=1}^{n} f( \xi _{i}) g( \eta _{i}) \Delta x_{i} -\int _{a}^{b} f( x) g( x)\mathrm{d} x\right| < \varepsilon \ $。\qed 
+
+
+
+
+
+\begin{ques}
+	设函数 $\displaystyle f( x)$ 在 $\displaystyle [ a,b]$ 可积且存在 $\displaystyle \alpha  >0$ 使得对 $\displaystyle \forall x\in [ a,b] \ s.t.\ f( x) \geqslant \alpha $，试证明：（1）$\displaystyle \frac{1}{f( x)} \in R[ a,b]$；（2）$\displaystyle \ln f( x) \in R[ a,b]$。
+
+\end{ques}
+
+
+
+
+（1）
+
+考虑分割 $\displaystyle \Delta :a=x_{0} < x_{1} < \cdots < x_{n} =b$，对于 $\displaystyle c,d\in [ x_{i-1} ,x_{i}]$，有
+
+
+\begin{equation*}
+\left| \frac{1}{f( c)} -\frac{1}{f( d)}\right| =\left| \frac{f( d) -f( c)}{f( c) f( d)}\right| \leqslant \frac{\omega _{i}}{\alpha ^{2}}
+\end{equation*}
+
+
+$\displaystyle f( x) \in R[ a,b] \Rightarrow \forall \varepsilon  >0,\exists \Delta \ s.t.\ \sum \omega _{i}( f( x)) \Delta x_{i} \leqslant \varepsilon \Rightarrow \sum \omega _{i}\left(\frac{1}{f( x)}\right) \Delta x_{i} \leqslant \frac{\varepsilon }{\alpha ^{2}}$。
+
+因为 $\displaystyle \frac{1}{\alpha ^{2}}$ 是常数，所以 $\displaystyle \frac{1}{f( x)} \in R[ a,b]$。
+
+
+
+
+
+（2）
+
+考虑分割 $\displaystyle \Delta :a=x_{0} < x_{1} < \cdots < x_{n} =b$，对于 $\displaystyle c,d\in [ x_{i-1} ,x_{i}]$，有
+
+
+\begin{equation*}
+| \ln f( c) -\ln f( d)| =\left| \ln\frac{f( c)}{f( d)}\right| \leqslant \left| \frac{f( c) -f( d)}{f( d)}\right| \leqslant \frac{\omega _{i}}{\alpha }
+\end{equation*}
+
+
+$\displaystyle f( x) \in R[ a,b] \Rightarrow \forall \varepsilon  >0,\exists \Delta \ s.t.\ \sum \omega _{i}( f( x)) \Delta x_{i} \leqslant \varepsilon \Rightarrow \sum \omega _{i}(\ln f( x)) \Delta x_{i} \leqslant \frac{\varepsilon }{\alpha }$。
+
+因为 $\displaystyle \frac{1}{\alpha }$ 是常数，所以 $\displaystyle \ln f( x) \in R[ a,b]$。
+
+
+
+
+
+
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

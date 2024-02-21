@@ -64,7 +64,7 @@
 
 
 \begin{equation*}
-\int _{0}^{1} f( x)\mathrm{d} x=\lim _{n\rightarrow \infty }\sum f( \xi _{i}) \Delta x_{i} \leqslant 0
+	\int _{0}^{1} f( x)\mathrm{d} x=\lim _{\lambda ( \Delta )\rightarrow 0}\sum f( \xi _{i}) \Delta x_{i} \leqslant 0
 \end{equation*}
 
 
@@ -84,12 +84,12 @@
 
 
 \begin{equation*}
-\begin{aligned}
-f\left(\frac{1}{a}\int _{0}^{a} g( t)\mathrm{d} t\right) & =\lim _{n\rightarrow \infty } f\left(\frac{1}{a}\sum g( \xi _{i}) \Delta x_{i}\right)\\
- & =\lim _{n\rightarrow \infty } f\left(\sum g( \xi _{i})\frac{\Delta x_{i}}{a}\right)\\
- & \leqslant \lim _{n\rightarrow \infty }\sum \frac{\Delta x_{i}}{a} f( g( \xi _{i}))\\
- & =\frac{1}{a}\int _{0}^{a} f( g( t))\mathrm{d} t\qed 
-\end{aligned}
+	\begin{aligned}
+		f\left(\frac{1}{a}\int _{0}^{a} g( t)\mathrm{d} t\right) & =\lim _{\lambda ( \Delta )\rightarrow 0} f\left(\frac{1}{a}\sum g( \xi _{i}) \Delta x_{i}\right)\\
+		& =\lim _{\lambda ( \Delta )\rightarrow 0} f\left(\sum g( \xi _{i})\frac{\Delta x_{i}}{a}\right)\\
+		& \leqslant \lim _{\lambda ( \Delta )\rightarrow 0}\sum \frac{\Delta x_{i}}{a} f( g( \xi _{i}))\\
+		& =\frac{1}{a}\int _{0}^{a} f( g( t))\mathrm{d} t \qed
+	\end{aligned} 
 \end{equation*}
 
 
