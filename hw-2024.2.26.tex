@@ -1,0 +1,59 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.2.26 作业}
+
+\begin{ques}
+	设 $\displaystyle f( x) \in R[ a,b] ,\forall [ \alpha ,\beta ] \subset [ a,b] ,\exists x',x''\in [ \alpha ,\beta ] ,\ s.t.\ f( x') f( x'') \leqslant 0$。计算 $\displaystyle \int _{a}^{b} f( x)\mathrm{d} x$ 的值。
+\end{ques}
+
+
+
+如果 $\displaystyle f( x_{0}) \neq 0$，如果 $\displaystyle f( x)$ 在 $\displaystyle x_{0}$ 处连续，那么对于 $\displaystyle \varepsilon =\frac{|f( x_{0}) |}{2} ,\exists \delta  >0\ s.t.\ \forall x\in ( x_{0} -\delta ,x_{0} +\delta ) ,|f( x) -f( x_{0}) |< \varepsilon $，进而对于 $\displaystyle \nexists x',x''\in \left[ x_{0} -\frac{\delta }{2} ,x_{0} +\frac{\delta }{2}\right] ,\ s.t.\ f( x') f( x'') \leqslant 0$，矛盾。
+
+于是 $\displaystyle f( x)$ 在 $\displaystyle x_{0}$ 处 一定间断。
+
+记 $\displaystyle E=\{x_{0} | f( x_{0}) \neq 0\}$，$\displaystyle f( x)$ 上界为 $\displaystyle M$，$\displaystyle \forall \varepsilon  >0,$根据勒贝格定理，存在一系列开区间 $\displaystyle ( x'_{i} ,x''_{i}) \subset [ a,b]$ 使得 $\displaystyle E\subset \bigcup _{i=1}^{\infty }( x '_{i} ,x''_{i})$ 且 $\displaystyle \sum _{i=1}^{\infty }( x''_{i} -x'_{i}) < \frac{\varepsilon }{M( b-a)}$，考虑 $\displaystyle [ a,b]$ 的分割 $\displaystyle \Delta =\{x'_{i}\} \cup \{x''_{i}\} \cup \{a,b\}$，于是 $\displaystyle \left| \sum f( \xi _{i}) \Delta x_{i}\right| \leqslant \frac{\varepsilon }{M( b-a)} M( b-a) =\varepsilon $。
+
+于是 $\displaystyle \forall \varepsilon  >0,\left| \int _{a}^{b} f( x)\mathrm{d} x\right| \leqslant \varepsilon $，进而 $\displaystyle \int _{a}^{b} f( x)\mathrm{d} x=0$。
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 定义在 $\displaystyle [ a,b] ,c\in ( a,b)$，则 $\displaystyle f( x) \in BV[ a,b] \Leftrightarrow f( x) \in BV[ a,c] ,f( x) \in BV[ c,b]$；并且有 $\displaystyle \bigvee _{a}^{b} f( x) =\bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$。
+
+\end{ques}
+
+
+先证明，对于 $\displaystyle [ a,b]$ 上一个分割 $\displaystyle \Delta $ 和 $\displaystyle c\in ( a,b)$，令 $\displaystyle \Delta ’=\Delta \cup \{c\}$，则 $\displaystyle \sum |\Delta f( x_{i}) |\leqslant \sum |\Delta 'f( x_{i}) |$。
+
+如果 $\displaystyle c\in \Delta $，那么显然成立。如果 $\displaystyle c\notin \Delta $，记 $\displaystyle x=\sup \{t|t\in \Delta ,t< c\} ,y=\inf\{t|t\in \Delta ,t >c\}$，有 $\displaystyle |f( x) -f( y) |\leqslant |f( x) -f( c) |+|f( y) -f( c) |$，于是$\displaystyle \sum |\Delta f( x_{i}) |\leqslant \sum |\Delta 'f( x_{i}) |$。
+
+
+
+如果 $\displaystyle f( x) \in BV[ a,b]$，那么 $\displaystyle \exists M, \forall \Delta \subset [ a,b] \ s.t.\ \sum |\Delta f( x_{i}) |\leqslant M$，考虑 $\displaystyle \Delta _{1} \subset [ a,c] ,\Delta _{2} \subset [ c,b]$， $\displaystyle \Delta _{3} =\Delta _{1} \cup \Delta _{2}$，一定有 $\displaystyle \sum |\Delta _{3} f( x_{i}) |\leqslant M$，进而$\displaystyle \sum |\Delta _{1} f( x_{i}) |+\sum |\Delta _{2} f( x_{i}) |\leqslant M,\sum |\Delta _{1} f( x_{i}) |\leqslant M,\sum |\Delta _{2} f( x_{i}) |\leqslant M$，$\displaystyle f( x) \in BV[ a,c] ,f( x) \in BV[ c,b]$，同时有 $\displaystyle \bigvee _{a}^{b} f( x) \geqslant \bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$。
+
+
+
+如果 $\displaystyle f( x) \in BV[ a,c] ,f( x) \in BV[ c,b]$，考虑 $\displaystyle \forall \Delta _{1} \subset [ a,c] ,\Delta _{2} \subset [ c,b]$， $\displaystyle \Delta _{3} =\Delta _{1} \cup \Delta _{2}$，$\displaystyle \sum |\Delta _{3} f( x_{i}) |\leqslant \bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$。
+
+$\displaystyle \forall \Delta \subset [ a,b]$，令 $\displaystyle \Delta '=\Delta \cup \{c\} \ $根据上面结论 $\displaystyle \sum |\Delta f( x_{i}) |\leqslant \sum |\Delta ' f( x_{i}) |\leqslant \bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$，于是有 $\displaystyle f( x) \in BV[ a,b]$，同时有 $\displaystyle \bigvee _{a}^{b} f( x) \leqslant \bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$。
+
+
+
+综上，$\displaystyle \bigvee _{a}^{b} f( x) =\bigvee _{a}^{c} f( x) +\bigvee _{c}^{b} f( x)$。\qed 
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
