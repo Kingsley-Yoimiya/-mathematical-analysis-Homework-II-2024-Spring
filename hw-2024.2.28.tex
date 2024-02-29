@@ -1,0 +1,201 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.2.28 作业}
+
+\begin{ques}
+	求极限 $\displaystyle \lim _{x\rightarrow 0}\frac{\int _{0}^{x}(\sin t)^{\alpha }\mathrm{d} t}{x^{1+\alpha }}( \alpha  >0)$。
+\end{ques}
+
+
+
+
+\begin{equation*}
+	\begin{aligned}
+		\lim _{x\rightarrow 0}\frac{\int _{0}^{x}(\sin t)^{\alpha }\mathrm{d} t}{x^{1+\alpha }} & =\lim _{x\rightarrow 0}\frac{(\sin x)^{\alpha }}{( 1+\alpha ) x^{\alpha }}\\
+		& =\frac{1}{1+\alpha }\lim _{x\rightarrow 0}\frac{(\sin x)^{\alpha }}{x^{\alpha }}\\
+		& =\frac{1}{1+\alpha }
+	\end{aligned}
+\end{equation*}
+
+
+
+
+\begin{ques}
+	设函数 $\displaystyle f( x) \in R[ a,b]$ 并且对 $\displaystyle \forall x\in [ a,b]$ 有 $\displaystyle f( x)  >0$。证明 $\displaystyle \int _{a}^{b} f( x)\mathrm{d} x >0$。
+\end{ques}
+
+
+
+对于任意 $\displaystyle [ a,b]$ 上的分割 $\displaystyle \Delta :a=x_{0} < x_{1} < x_{2} < \cdots < x_{n} =b$，记 $\displaystyle \xi _{i} \in [ x_{i-1} ,x_{i}]$，有
+
+
+\begin{equation*}
+	\sum _{i=1}^{n} f( \xi _{i}) \Delta x_{i}  >0
+\end{equation*}
+
+进而，$\displaystyle \int _{a}^{b} f( x)\mathrm{d} x=\lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i=1}^{n} f( \xi _{i}) \Delta x_{i}  >0$。\qed 
+
+
+
+
+
+\begin{ques}
+	证明下面极限成立：\\（1）$\displaystyle \lim _{n\rightarrow +\infty }\int _{-1}^{1}\left( 1-x^{2}\right)^{n}\mathrm{d} x=0$；\\（2）设函数 $\displaystyle f( x) \in C[ -1,1] ,\lim _{n\rightarrow +\infty }\frac{\int _{-1}^{1} f( x)\left( 1-x^{2}\right)^{n}\mathrm{d} x}{\int _{-1}^{1}\left( 1-x^{2}\right)^{n}\mathrm{d} x} =f( 0)$。
+
+\end{ques}
+
+
+（1）
+
+对于任意 $\displaystyle t >0$，$\displaystyle \forall |x| >t,\lim _{n\rightarrow +\infty }\left( 1-x^{2}\right)^{n} =0$，因此 $\displaystyle \lim _{n\rightarrow +\infty }\int _{-1}^{-t}\left( 1-x^{2}\right)^{n} =\lim _{n\rightarrow +\infty }\int _{t}^{1}\left( 1-x^{2}\right)^{n} =0$。
+
+进而：
+
+
+\begin{equation*}
+	\lim _{n\rightarrow +\infty }\int _{-1}^{1}\left( 1-x^{2}\right)^{n}\mathrm{d} x=\lim _{t\rightarrow 0}\lim _{n\rightarrow +\infty }\int _{-1}^{-t}\left( 1-x^{2}\right)^{n} +\int _{t}^{1}\left( 1-x^{2}\right)^{n} +2t=0
+\end{equation*}
+\qed 
+
+（2）
+
+类似 (1)，有$\displaystyle \lim _{n\rightarrow +\infty }\int _{-1}^{-t} f( x)\left( 1-x^{2}\right)^{n} =\lim _{n\rightarrow +\infty }\int _{t}^{1} f( x)\left( 1-x^{2}\right)^{n} =0,\forall t >0$。
+
+于是
+
+
+\begin{equation*}
+	\lim _{n\rightarrow +\infty }\frac{\int _{-1}^{1} f( x)\left( 1-x^{2}\right)^{n}\mathrm{d} x}{\int _{-1}^{1}\left( 1-x^{2}\right)^{n}\mathrm{d} x} =\lim _{n\rightarrow +\infty }\lim _{t\rightarrow 0}\frac{f( 0) \times 2t}{2t} =1
+\end{equation*}
+\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C[ a,b]$ 满足：对于任意的 $\displaystyle \varphi ( x) \in C[ a,b]$，只要 $\displaystyle \int _{a}^{b} \varphi ( x)\mathrm{d} x=0$，就有 $\displaystyle \int _{a}^{b} f( x) \varphi ( x)\mathrm{d} x=0$。证明：$\displaystyle f( x) =const,\ x\in [ a,b]$。
+\end{ques}
+
+
+记 $\displaystyle \int _{a}^{b} f( x)\mathrm{d} x=A$，令 $\displaystyle \varphi ( x) =f( x) -\frac{A}{b-a}$，则 $\displaystyle \int _{a}^{b} \varphi ( x)\mathrm{d} x=0$。
+
+那么 $\displaystyle 0=\int _{a}^{b} f( x) \varphi ( x)\mathrm{d} x-\frac{A}{b-a}\int _{a}^{b} \varphi ( x)\mathrm{d} x=\int _{a}^{b}\left( f( x) -\frac{A}{b-a}\right)^{2}\mathrm{d} x$，因此 $\displaystyle f( x) \equiv \frac{A}{b-a}$。\qed 
+
+
+
+
+
+\begin{ques}
+设 $\displaystyle f( x) \in R[ 0,1] ,0< m\leqslant f( x) \leqslant M$，求证：$\displaystyle \int _{0}^{1} f( x)\mathrm{d} x\int _{0}^{1}\frac{\mathrm{d} x}{f( x)} \leqslant \frac{( m+M)^{2}}{4mM}$。
+\end{ques}
+
+
+
+对于 $\displaystyle [ 0,1]$ 上的分割
+
+
+\begin{equation*}
+	\Delta :0=x_{0} < x_{1} < \cdots < x_{n} =1,\lambda ( \Delta ) =\min( x_{i} -x_{i-1}) ,\xi _{i} \in ( x_{i-1} ,x_{i}) ,\Delta x_{i} =x_{i} -x_{i-1}
+\end{equation*}
+
+
+有：
+
+
+\begin{equation*}
+	\begin{aligned}
+		\int _{0}^{1} f( x)\mathrm{d} x\int _{0}^{1}\frac{\mathrm{d} x}{f( x)} & =\lim _{\lambda ( \Delta )\rightarrow 0}\sum f( \xi _{i}) \Delta x_{i}\sum \frac{1}{f( \xi _{j})} \Delta x_{j}\\
+		& =\lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i< j}\left(\frac{f( \xi _{i})}{f( \xi _{j})} +\frac{f( \xi _{j})}{f( \xi _{i})}\right) \Delta x_{i} \Delta x_{j} +\sum \Delta x_{i}^{2}\\
+		& =\lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i< j}\left(\frac{f( \xi _{i})}{f( \xi _{j})} +\frac{f( \xi _{j})}{f( \xi _{i})}\right) \Delta x_{i} \Delta x_{j}
+	\end{aligned}
+\end{equation*}
+
+
+考虑 $\displaystyle f( x) =x+\frac{1}{x} ,0< x< 1$，容易验证其在 $\displaystyle ( 0,1)$ 上单调下降。于是
+\begin{equation*}
+	\frac{f( \xi _{i})}{f( \xi _{j})} +\frac{f( \xi _{j})}{f( \xi _{i})} \leqslant \frac{m}{M} +\frac{M}{m}
+\end{equation*}
+
+
+那么
+\begin{equation*}
+	\begin{aligned}
+		\int _{0}^{1} f( x)\mathrm{d} x\int _{0}^{1}\frac{\mathrm{d} x}{f( x)} & =\lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i< j}\left(\frac{f( \xi _{i})}{f( \xi _{j})} +\frac{f( \xi _{j})}{f( \xi _{i})}\right) \Delta x_{i} \Delta x_{j}\\
+		& \leqslant \lim _{\lambda ( \Delta )\rightarrow 0}\sum _{i< j}\left(\frac{m}{M} +\frac{M}{m}\right) \Delta x_{i} \Delta x_{j}\\
+		& \leqslant \max_{0\leqslant x\leqslant 1}\left(( mx+M( 1-x))\left(\frac{m}{x} +\frac{M}{1-x}\right)\right)\\
+		& =\max_{0\leqslant x\leqslant 1}\left( m+M+\frac{mM( 1-x)}{x} +\frac{mMx}{1-x}\right)\\
+		& =\frac{( m+M)^{2}}{4mM}
+	\end{aligned}
+\end{equation*}
+\qed 
+
+
+
+
+\begin{ques}
+	
+【连续性 Jensen 不等式】设 $\displaystyle f( x) ,p( x) \in R[ a,b] ,m\leqslant f( x) \leqslant M,p( x) \geqslant 0,x\in [ a,b] ,\int _{a}^{b} p( x)\mathrm{d} x >0,\varphi ( x) \in D[ m,M]$ 且 $\displaystyle \varphi ( x)$ 在 $\displaystyle [ m,M]$ 凸，证明：
+\begin{equation*}
+	\varphi \left(\frac{\int _{a}^{b} p( x) f( x)\mathrm{d} x}{\int _{a}^{b} p( x)\mathrm{d} x}\right) \leqslant \frac{\int _{a}^{b} p( x) \varphi ( f( x))\mathrm{d} x}{\int _{a}^{b} p( x)\mathrm{d} x}
+\end{equation*}
+
+
+\end{ques}
+
+考虑 $\displaystyle [ a,b]$ 上的分割：
+
+
+\begin{equation*}
+	\Delta :a=x_{0} < x_{1} < \cdots < x_{n} =b,\lambda ( \Delta ) =\max( x_{i} -x_{i-1}) ,\Delta x_{i} =x_{i} -x_{i-1} ,\xi _{i} \in ( x_{i-1} ,x_{i})
+\end{equation*}
+
+
+那么
+
+
+\begin{equation*}
+	\begin{aligned}
+		\varphi \left(\frac{\int _{a}^{b} p( x) f( x)\mathrm{d} x}{\int _{a}^{b} p( x)\mathrm{d} x}\right) & =\lim _{\lambda ( \Delta )\rightarrow 0} \varphi \left(\frac{\sum _{i=1}^{n} p( \xi _{i}) f( \xi _{i}) \Delta x_{i}}{\sum _{i=1}^{n} p( \xi _{i}) \Delta x_{i}}\right)\\
+		& =\lim _{\lambda ( \Delta )\rightarrow 0} \varphi \left(\sum _{i=1}^{n}\frac{p( \xi _{i}) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} f( \xi _{i})\right)
+	\end{aligned}
+\end{equation*}
+
+因为 
+\begin{equation*}
+	\sum _{i=1}^{n}\frac{p( \xi _{i}) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} =1
+\end{equation*}
+
+
+根据琴生不等式，
+
+
+\begin{equation*}
+	\begin{aligned}
+		\begin{array}{l}
+			\varphi \left(\sum _{i=1}^{n}\frac{p( \xi _{i}) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} f( \xi _{i})\right)\\
+		\end{array} & \leqslant \sum _{i=1}^{n}\frac{p( \xi _{i}) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} \varphi ( f( \xi _{i}))\\
+		& =\frac{\sum _{i=1}^{n} p( \xi _{i}) \varphi ( f( \xi _{i})) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)}
+	\end{aligned}
+\end{equation*}
+
+
+进而根据积分的定义：
+
+\begin{gather*}
+	\varphi \left(\frac{\int _{a}^{b} p( x) f( x)\mathrm{d} x}{\int _{a}^{b} p( x)\mathrm{d} x}\right) =\lim _{\lambda ( \Delta )\rightarrow 0} \varphi \left(\sum _{i=1}^{n}\frac{p( \xi _{i}) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} f( \xi _{i})\right) \leqslant \\
+	\lim _{\lambda ( \Delta )\rightarrow 0}\frac{\sum _{i=1}^{n} p( \xi _{i}) \varphi ( f( \xi _{i})) \Delta x_{i}}{\left(\sum _{j=1}^{n} p( \xi _{j}) \Delta x_{j}\right)} =\frac{\int _{a}^{b} p( x) \varphi ( f( x))\mathrm{d} x}{\int _{a}^{b} p( x)\mathrm{d} x}
+\end{gather*}
+\qed 
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
