@@ -1,0 +1,316 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.4 作业}
+
+\begin{ques}
+	确定积分的正负性 $\displaystyle \int _{0}^{2\pi } x(\sin x)^{2n+1}\mathrm{d} x$。
+\end{ques}
+\begin{equation*}
+	\begin{aligned}
+		\int _{0}^{2\pi } x(\sin x)^{2n+1}\mathrm{d} x & =\int _{0}^{\pi } x(\sin x)^{2n+1}\mathrm{d} x-\int _{2\pi }^{\pi } x(\sin x)^{2n+1}\mathrm{d} x\\
+		& =\int _{0}^{\pi }( x-( 2\pi -x))(\sin x)^{2n+1}\mathrm{d} x\\
+		& =\int _{0}^{\pi }( 2x-2\pi )(\sin x)^{2n+1}\mathrm{d} x\\
+		& < 0
+	\end{aligned}
+\end{equation*}
+
+
+因此是 负号。
+
+
+
+\begin{ques}
+	计算积分：$\displaystyle \int _{0}^{a}\arctan\sqrt{\frac{a-x}{a+x}}\mathrm{d} x( a >0)$。
+\end{ques}
+\begin{equation*}
+	\begin{aligned}
+		\int _{0}^{a}\arctan\sqrt{\frac{a-x}{a+x}}\mathrm{d} x & =\left. x\arctan\sqrt{\frac{a-x}{a+x}}\middle| _{0}^{a}\right. -\int _{0}^{a} x\frac{1}{1+\frac{a-x}{a+x}}\sqrt{\frac{a+x}{a-x}}\frac{-a}{( a+x)^{2}}\mathrm{d} x\\
+		& =\int _{0}^{a}\frac{x}{2\sqrt{a^{2} -x^{2}}}\mathrm{d} x\\
+		& =-\frac{1}{2}\int _{0}^{a}\mathrm{d}\sqrt{a^{2} -x^{2}}\\
+		& =\frac{a}{2}
+	\end{aligned}
+\end{equation*}
+
+
+
+
+\begin{ques}
+	计算积分：$\displaystyle \int _{0}^{1} x^{m-1}( 1-x)^{n-1}\mathrm{d} x$。
+\end{ques}
+
+
+
+记 $\displaystyle F( n,m) =\int _{0}^{1} x^{m-1}( 1-x)^{n-1}\mathrm{d} x$。
+\begin{gather*}
+	\begin{aligned}
+		F( n,1) & =\int _{0}^{1}( 1-x)^{n-1}\mathrm{d} x\\
+		& =\left. -\frac{( 1-x)^{n}}{n}\middle| _{0}^{1}\right. \\
+		& =\frac{1}{n}
+	\end{aligned}\\
+	\begin{aligned}
+		m >1:F( n,m) & =\int _{0}^{1} x^{m-1}( 1-x)^{n-1}\mathrm{d} x\\
+		& =-\frac{1}{n}\int _{0}^{1} x^{m-1}\mathrm{d}( 1-x)^{n}\\
+		& =-\frac{1}{n}\left[\left. ( 1-x)^{n} x^{m-1}\middle| _{0}^{1}\right. -\int _{0}^{1}( m-1) x^{m-2}( 1-x)^{n}\mathrm{d} x\right]\\
+		& =\frac{m-1}{n}\int _{0}^{1} x^{m-2}( 1-x)^{n}\mathrm{d} x\\
+		& =\frac{m-1}{n} F( n+1,m-1)\\
+		& =\frac{m-1}{n} \times \frac{m-2}{n+1} \times \cdots \times \frac{1}{n+m-2} =\frac{( m-1) !( n-1) !}{( n+m-2) !} =\binom{n+m-2}{n-1}
+	\end{aligned}\\
+	\\
+	F( n,m) =\begin{cases}
+		\frac{1}{n} & ,m=1\\
+		\binom{n+m-2}{n-1} & ,m >1
+	\end{cases}
+\end{gather*}
+
+
+
+
+\begin{ques}
+	设函数 $\displaystyle f( x) \in D[ a,b] ,f'( x) \in R[ a,b] ,$证明：
+
+（1）对于任意的 $\displaystyle x\in [ a,b] \ s.t.\ |f( x) |\leqslant \left| \frac{1}{b-a}\int _{a}^{b} f( x)\mathrm{d} x\right| +\int _{a}^{b} |f'( x) |\mathrm{d} x$。
+
+（2）当 $\displaystyle f( a) \neq f( b)$，上式成立严格不等式。
+
+\end{ques}
+
+
+证明：
+
+
+
+（1）
+
+根据定积分第一中值定理，$\displaystyle \exists \xi \in [ a,b] \ s.t.\ \int _{a}^{b} f( x)\mathrm{d} x=( b-a) f( \xi )$。
+
+往证 $\displaystyle \forall x\in [ a,b] \ s.t.\ |f( x) |\leqslant | f( \xi )| +\int _{a}^{b} |f'( x) |\mathrm{d} x$。
+
+而
+\begin{equation*}
+	\begin{aligned}
+		f( x) & =f( \xi ) +\int _{\xi }^{x} f'( t)\mathrm{d} t\\
+		|f( x) | & \leqslant |f( \xi ) |+\int _{\min( \xi ,x)}^{\max( \xi ,x)} |f'( t) |\mathrm{d} t\\
+		& \leqslant |f( \xi ) |+\int _{a}^{b} |f'( x) |\mathrm{d} x
+	\end{aligned}
+\end{equation*}
+\qed 
+
+（2）
+
+考虑反证，不妨假设 $\displaystyle x\geqslant \varepsilon $ 时不等式可以取等，一定有：
+\begin{itemize}
+	\item $\displaystyle ( \varepsilon ,x)$ 上 $\displaystyle f( x)$ 单调上升，如果不满足，取 $\displaystyle c,d\in ( \varepsilon ,x) \ s.t.\ c< d\lor f( c)  >f( d)$，有 
+\end{itemize}
+\begin{gather*}
+	\int _{\varepsilon }^{x} f'( t)\mathrm{d} t=\int _{\varepsilon }^{c} f'( t)\mathrm{d} t+\int _{c}^{d} f'( t)\mathrm{d} t+\int _{d}^{x} f'( t)\mathrm{d} t\\
+	< \int _{\varepsilon }^{c} f'( t)\mathrm{d} t+\int _{c}^{d} |f'( t) |\mathrm{d} t+\int _{d}^{x} f'( t)\mathrm{d} t\leqslant \int _{\varepsilon }^{x} |f'( t) |\mathrm{d} t
+\end{gather*}
+	（1）问中第一个 $\displaystyle \leqslant $ 无法取等。
+\begin{itemize}
+	\item $\displaystyle f( t) \equiv f( a) ,\ \forall t\in [ a,\varepsilon ] ,f( t) \equiv f( b) ,\ \forall t\in [ x,b]$。类似上面一点，不妨假设是 $\displaystyle f( t) \equiv f( a) ,\ \forall t\in ( a,\varepsilon )$ 无法满足，一定会使得 （1）问中第二个 $\displaystyle \leqslant $ 无法取等。
+\end{itemize}
+
+记函数最大值为 $\displaystyle M=f( b) =f( x)$，最小值为 $\displaystyle m=f( a) =f( \varepsilon )$。
+\begin{gather*}
+	\int _{a}^{b} f( t)\mathrm{d} t-( b-a) f( \varepsilon ) =\int _{a}^{b}( f( t) -f( \varepsilon ))\mathrm{d} t\\
+	=\int _{\varepsilon }^{x}( f( t) -f( \varepsilon ))\mathrm{d} t+\int _{x}^{b}( f( t) -f( \varepsilon ))\mathrm{d} t=\int _{\varepsilon }^{x}( f( t) -f( \varepsilon ))\mathrm{d} t+( M-m)( b-x)
+\end{gather*}
+
+\begin{itemize}
+	\item 如果 $\displaystyle x=\varepsilon $，会使得 $\displaystyle M=m$，矛盾。
+	\item 如果 $\displaystyle x\neq \varepsilon $取 $\displaystyle v=\frac{f( x) +f( \varepsilon )}{2}$，因为 $\displaystyle f( x) \in D[ a,b] \Rightarrow f( x) \in C[ a,b]$，那么一定存在 $\displaystyle p\in ( \varepsilon ,x) \ s.t.\ f( p) =v$。进而 
+\end{itemize}
+\begin{equation*}
+	\int _{\varepsilon }^{x}( f( t) -f( \varepsilon ))\mathrm{d} t\geqslant ( f( p) -f( \varepsilon ))( x-p)  >0
+\end{equation*}
+
+于 $\displaystyle \varepsilon $ 定义矛盾。
+\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C^{1}[ a,b]$，且 $\displaystyle f( a) =f( b) =0,\int _{a}^{b} f^{2}( x)\mathrm{d} x=1$，证明
+
+
+\begin{equation*}
+	\int _{a}^{b}[ f'( x)]^{2}\mathrm{d} x\times \int _{a}^{b}[ xf( x)]^{2}\mathrm{d} x\geqslant \frac{1}{4}
+\end{equation*}
+
+\end{ques}
+\begin{equation*}
+	\begin{aligned}
+		1=\int _{a}^{b} f^{2}( x)\mathrm{d} x & =\left. xf^{2}( x)\middle| _{a}^{b}\right. -2\int _{a}^{b} xf( x) f'( x)\mathrm{d} x\\
+		& =-2\int _{a}^{b} xf( x) f'( x)\mathrm{d} x
+	\end{aligned}
+\end{equation*}
+
+
+下面证明 $\displaystyle \left[\int _{a}^{b} f( x) g( x)\mathrm{d} x\right]^{2} \leqslant \int _{a}^{b} f^{2}( x)\mathrm{d} x\times \int _{a}^{b} g^{2}( x)\mathrm{d} x$。
+
+
+
+考虑 $\displaystyle 0\leqslant \int _{a}^{b}[ f( x) -tg( x)]^{2}\mathrm{d} x=\int _{a}^{b} f^{2}( x)\mathrm{d} x+t^{2}\int _{a}^{b} g^{2}( x)\mathrm{d} x-2t\int _{a}^{b} f( x) g( x)\mathrm{d} x$，进而
+\begin{gather*}
+	2t\int _{a}^{b} f( x) g( x)\mathrm{d} x\leqslant \int _{a}^{b} f^{2}( x)\mathrm{d} x+t^{2}\int _{a}^{b} g^{2}( x)\mathrm{d} x\\
+	2\int _{a}^{b} f( x) g( x)\mathrm{d} x\leqslant \min_{t}\left(\frac{1}{t}\int _{a}^{b} f^{2}( x)\mathrm{d} x+t\int _{a}^{b} g^{2}( x)\mathrm{d} x\right)\\
+	2\int _{a}^{b} f( x) g( x)\mathrm{d} x\leqslant 2\sqrt{\int _{a}^{b} f^{2}( x)\mathrm{d} x\times \int _{a}^{b} g^{2}( x)\mathrm{d} x}\\
+	\left[\int _{a}^{b} f( x) g( x)\mathrm{d} x\right]^{2} \leqslant \int _{a}^{b} f^{2}( x)\mathrm{d} x\times \int _{a}^{b} g^{2}( x)\mathrm{d} x
+\end{gather*}
+
+进而
+\begin{gather*}
+	\int _{a}^{b} xf( x) f'( x)\mathrm{d} x=-\frac{1}{2}\\
+	\frac{1}{4} =\left[\int _{a}^{b} xf( x) f'( x)\mathrm{d} x\right]^{2} \leqslant \int _{a}^{b}[ f'( x)]^{2}\mathrm{d} x\times \int _{a}^{b}[ xf( x)]^{2}\mathrm{d} x
+\end{gather*}
+\qed 
+
+
+
+\begin{ques}
+	证明对于 $\displaystyle \forall x >0$ 存在唯一的 $\displaystyle \xi _{x}  >0$ 使得 $\displaystyle \int _{0}^{x} e^{t^{2}}\mathrm{d} t=xe^{\xi _{x}^{2}}$ 成立；并求 $\displaystyle \lim _{x\rightarrow +\infty }\frac{\xi _{x}}{x}$。
+\end{ques}
+
+
+
+首先有定积分第一中值定理，一定存在 $\displaystyle \xi _{x} \in ( 0,x)$ 使得 $\displaystyle \int _{0}^{x} e^{t^{2}}\mathrm{d} t=xe^{\xi _{x}^{2}}$。
+
+对于唯一性，因为 $\displaystyle h( t) =e^{t^{2}}$ 是严格单调上升的的，如果存在 $\displaystyle \xi _{x} ,\xi '_{x}$ 满足条件，就会使得$\displaystyle \int _{0}^{x} e^{t^{2}}\mathrm{d} t$ 有两个取值，于定积分定义矛盾。\qed 
+
+
+
+首先，$\displaystyle \int _{0}^{x} e^{t^{2}}\mathrm{d} t=xe^{\xi _{x}^{2}} \Rightarrow \xi _{x} =\sqrt{\ln\frac{\int _{0}^{x} e^{t^{2}}\mathrm{d} t}{x}}$。
+
+考虑
+\begin{equation*}
+	\begin{aligned}
+		\lim _{x\rightarrow +\infty }\frac{\xi _{x}^{2}}{x^{2}} & =\lim _{x\rightarrow +\infty }\frac{\ln\frac{\int _{0}^{x} e^{t^{2}}\mathrm{d} t}{x}}{x^{2}}\\
+		& \xlongequal{( 1)}\lim _{x\rightarrow +\infty }\frac{\frac{x}{\int _{0}^{x} e^{t^{2}}\mathrm{d} t}\frac{e{^{x}}^{2} x-\int _{0}^{x} e^{t^{2}}\mathrm{d} t}{x^{2}}}{2x}\\
+		& =\lim _{x\rightarrow +\infty }\frac{\frac{e{^{x}}^{2} x}{\int _{0}^{x} e^{t^{2}}\mathrm{d} t} -1}{2x^{2}}\\
+		& =\lim _{x\rightarrow +\infty }\frac{e^{x^{2}}}{2x\int _{0}^{x} e^{t^{2}}\mathrm{d} t}\\
+		& \xlongequal{( 2)}\lim _{x\rightarrow +\infty }\frac{e^{x^{2}} 2x}{2xe^{x^{2}} +2\int _{0}^{x} e^{t^{2}}\mathrm{d} t}\\
+		& =\lim _{x\rightarrow +\infty }\frac{x}{x+\frac{\int _{0}^{x} e^{t^{2}}\mathrm{d} t}{e^{x^{2}}}}\\
+		& \xlongequal{( 3)} 1
+	\end{aligned}
+\end{equation*}
+
+
+上式中，（1） 是使用洛必达法则，以及 $\displaystyle e{^{t}}^{2}$连续，进而 $\displaystyle \frac{\mathrm{d}}{\mathrm{d} x}\int _{0}^{x} e^{t^{2}}\mathrm{d} t=e^{x^{2}}$。
+
+（2）是使用洛必达法则。
+
+（3）是因为
+\begin{equation*}
+	\lim _{x\rightarrow +\infty }\frac{\int _{0}^{x} e^{t^{2}}\mathrm{d} t}{e^{x^{2}}} =\lim _{x\rightarrow +\infty }\frac{e^{x^{2}}}{e^{x^{2}} 2x} =0
+\end{equation*}
+
+
+因为 $\displaystyle \lim _{x\rightarrow +\infty }\frac{\xi _{x}^{2}}{x^{2}} =1$，于是 $\displaystyle \lim _{x\rightarrow +\infty }\frac{\xi _{x}}{x} =1$。
+
+
+
+
+
+\begin{ques}
+	计算 $\displaystyle I=\int _{0}^{1}\frac{\ln( 1+x)}{1+x^{2}}\mathrm{d} x$。
+\end{ques}
+
+
+
+记 $\displaystyle f( a) =\int _{0}^{1}\frac{\ln( 1+ax)}{1+x^{2}}\mathrm{d} x$。
+
+有
+\begin{equation*}
+	\begin{aligned}
+		f'( a) & =\int _{0}^{1}\frac{x}{( 1+ax)\left( 1+x^{2}\right)}\mathrm{d} x\\
+		& =\int _{0}^{1}\frac{1}{1+a^{2}}\left(\frac{-a}{1+ax} +\frac{x+a}{1+x^{2}}\right)\mathrm{d} x\\
+		& =\frac{1}{1+a^{2}}\left[ -\ln( 1+a) +\frac{1}{2}\ln 2+\frac{\pi a}{4}\right]
+	\end{aligned}
+\end{equation*}
+
+进而
+\begin{equation*}
+	\begin{aligned}
+		I & =f( 1) -f( 0)\\
+		& =\int _{0}^{1} f'( a)\mathrm{d} a\\
+		& =\int _{0}^{1}\frac{1}{1+a^{2}}\left[ -\ln( 1+a) +\frac{1}{2}\ln 2+\frac{\pi a}{4}\right]\mathrm{d} a\\
+		& =-I+\frac{\pi \ln 2}{8} +\frac{\pi \ln 2}{8}\\
+		I & =\frac{\pi \ln 2}{8}
+	\end{aligned}
+\end{equation*}
+
+
+
+
+
+
+\begin{ques}
+	计算 $\displaystyle I=\int _{0}^{1}\left[\sqrt[7]{1-x^{3}} -\sqrt[3]{1-x^{7}}\right]\mathrm{d} x$。
+\end{ques}
+
+真不会啊。。
+
+
+
+
+
+
+
+\begin{ques}
+	计算极限 $\displaystyle \lim _{x\rightarrow +\infty }\frac{\int _{0}^{x} t|\sin t|\mathrm{d} t}{x^{2}}$。
+\end{ques}
+
+
+
+令 $\displaystyle x=2k\pi +v,v\in [ 0,2\pi )$
+\begin{align*}
+	\lim _{x\rightarrow +\infty }\frac{\int _{0}^{x} t|\sin t|\mathrm{d} t}{x^{2}} & =\lim _{2k\pi +v\rightarrow +\infty }\frac{\int _{0}^{2k\pi } t|\sin t|\mathrm{d} t+2k\pi \int _{0}^{v} |\sin t|\mathrm{d} t+\int _{0}^{v} t|\sin t|\mathrm{d} t}{( 2k\pi +v)^{2}}\\
+	& =\lim _{2k\pi +v\rightarrow +\infty }\frac{\left( k^{2} -k+1\right) 2\pi +2k\pi \int _{0}^{v} |\sin t|\mathrm{d} t+\int _{0}^{v} t|\sin t|\mathrm{d} t}{( 2k\pi +v)^{2}}
+\end{align*}
+
+（1）是因为
+\begin{align*}
+	\int _{0}^{2k\pi } t|\sin t|\mathrm{d} t & =\int _{0}^{\pi }\left( t+2\pi -t+4\pi \sum _{i=0}^{k-1} i\right)\sin t\mathrm{d} t\\
+	& =\left( k^{2} -k+1\right) 2\pi \int _{0}^{\pi }\sin t\mathrm{d} t\\
+	& =\left( k^{2} -k+1\right) 2\pi 
+\end{align*}
+
+而 
+\begin{gather*}
+	\int _{0}^{v} |\sin t|\mathrm{d} t\leqslant \int _{0}^{2\pi } |\sin t|\mathrm{d} t=4\\
+	\int _{0}^{v} t|\sin t|\mathrm{d} t\leqslant 2\pi \int _{0}^{v} |\sin t|\mathrm{d} t=8\pi 
+\end{gather*}
+
+
+于是
+\begin{gather*}
+	\frac{\left( k^{2} -k+1\right) 2\pi }{( 2k\pi +v)^{2}} \leqslant \frac{\left( k^{2} -k+1\right) 2\pi +2k\pi \int _{0}^{v} |\sin t|\mathrm{d} t+\int _{0}^{v} t|\sin t|\mathrm{d} t}{( 2k\pi +v)^{2}}\\
+	\leqslant \frac{\left( k^{2} -k+1\right) 2\pi +8k\pi +8\pi }{( 2k\pi +v)^{2}}
+\end{gather*}
+
+
+又因为
+\begin{gather*}
+	\lim _{k\rightarrow +\infty }\frac{\left( k^{2} -k+1\right) 2\pi }{( 2k\pi +v)^{2}} =\frac{1}{2\pi }\\
+	\lim _{k\rightarrow +\infty }\frac{\left( k^{2} -k+1\right) 2\pi +8k\pi +8\pi }{( 2k\pi +v)^{2}} =\frac{1}{2\pi }
+\end{gather*}
+
+
+由夹逼原理，
+\begin{equation*}
+	\lim _{x\rightarrow +\infty }\frac{\int _{0}^{x} t|\sin t|\mathrm{d} t}{x^{2}} =\frac{1}{2\pi }
+\end{equation*}
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
