@@ -256,7 +256,15 @@
 	计算 $\displaystyle I=\int _{0}^{1}\left[\sqrt[7]{1-x^{3}} -\sqrt[3]{1-x^{7}}\right]\mathrm{d} x$。
 \end{ques}
 
-真不会啊。。
+记 $\displaystyle J=\sqrt[3]{1-x^{7}}$，则 $\displaystyle x=\sqrt[7]{1-J^{3}}$，进而
+\begin{align*}
+	\int _{0}^{1} J\mathrm{d} x & = Jx | _{0}^{1} -\int _{0}^{1} x\mathrm{d}\sqrt[3]{1-x^{7}}\\
+	& =-\int _{1}^{0}\mathrm{\sqrt[7]{1-J^{3}} d} J\ \\
+	& =\int _{0}^{1}\mathrm{\sqrt[7]{1-x^{3}} d} x
+\end{align*}
+
+
+因此 $\displaystyle I=0$。
 
 
 

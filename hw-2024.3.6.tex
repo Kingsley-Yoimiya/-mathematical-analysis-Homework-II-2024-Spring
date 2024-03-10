@@ -1,0 +1,139 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.6 作业}
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 在 $\displaystyle [ -\pi ,\pi ]$ 单调下降，证明：对于正整数 $\displaystyle n$ 有 \ （1）$\displaystyle \int _{-\pi }^{\pi } f( x)\sin 2nx\mathrm{d} x\geqslant 0$；（2）$\displaystyle \int _{-\pi }^{\pi } f( x)\sin( 2n+1) x\mathrm{d} x\leqslant 0$。
+\end{ques}
+
+
+
+
+
+（1）
+
+
+\begin{align*}
+	\int _{-\pi }^{\pi } f( x)\sin 2nx\mathrm{d} x & =\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi } f( x)\sin 2nx\mathrm{d} x+\int _{-\pi +\frac{2i+1}{n} \pi }^{-\pi +\frac{i+1}{n} \pi } f( x)\sin 2nx\mathrm{d} x\right)\\
+	& =\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi }\left( f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right)\right)\sin 2nx\mathrm{d} x\right)
+\end{align*}
+
+而 $\displaystyle f( x)$ 在 $\displaystyle [ -\pi ,\pi ]$ 单调下降，$\displaystyle f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right) \geqslant 0$，同时 $\displaystyle \sin 2nx\geqslant 0,\forall x\in \left[ -\pi +\frac{i}{n} \pi ,-\pi +\frac{2i+1}{2n} \pi \right]$，因此
+
+\begin{equation*}
+	\int _{-\pi }^{\pi } f( x)\sin 2nx\mathrm{d} x=\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi }\left( f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right)\right)\sin 2nx\mathrm{d} x\right) \geqslant 0
+\end{equation*}\qed 
+
+（2）
+\begin{align*}
+	\int _{-\pi }^{\pi } f( x)\sin( 2n+1) x\mathrm{d} x & =\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi } f( x)\sin( 2n+1) x\mathrm{d} x+\int _{-\pi +\frac{2i+1}{n} \pi }^{-\pi +\frac{i+1}{n} \pi } f( x)\sin( 2n+1) x\mathrm{d} x\right)\\
+	& =\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi }\left( f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right)\right)\sin( 2n+1) x\mathrm{d} x\right)
+\end{align*}
+
+而 $\displaystyle f( x)$ 在 $\displaystyle [ -\pi ,\pi ]$ 单调下降，$\displaystyle f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right) \geqslant 0$，同时 $\displaystyle \sin( 2n+1) x\leqslant 0,\forall x\in \left[ -\pi +\frac{i}{n} \pi ,-\pi +\frac{2i+1}{2n} \pi \right]$，因此
+
+\begin{equation*}
+	\int _{-\pi }^{\pi } f( x)\sin( 2n+1) x\mathrm{d} x=\sum _{i=0}^{n-1}\left(\int _{-\pi +\frac{i}{n} \pi }^{-\pi +\frac{2i+1}{2n} \pi }\left( f( x) -f\left( -2\pi +\frac{2i+1}{n} \pi -x\right)\right)\sin( 2n+1) x\mathrm{d} x\right) \leqslant 0
+\end{equation*}\qed 
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in D[ a,b] ,f'( x)$ 在 $\displaystyle [ a,b]$ 上单调递增，$\displaystyle |f'( x) |\geqslant m >0,\forall x\in [ a,b]$，求证：$\displaystyle \left| \int _{a}^{b}\cos( f( x))\mathrm{d} x\right| \leqslant \frac{2}{m}$。
+\end{ques}
+
+
+
+因为 $\displaystyle |f'( x) \geqslant m >0$，因此 $\displaystyle f( x)$ 单调上升，令 $\displaystyle g( x) =f^{-1}( x)$ 存在且单调上升。
+
+
+\begin{align*}
+	\int _{a}^{b}\cos( f( x))\mathrm{d} x & =\int _{f( a)}^{f( b)}\cos( u)\frac{1}{f'( g( u))}\mathrm{d} u\\
+	& =\frac{1}{f'( g( f( b)))}\int _{\xi }^{f( b)}\cos u\mathrm{d} u( \xi \in [ f( a) ,f( b)]\\
+	\left| \int _{a}^{b}\cos( f( x))\mathrm{d} x\right|  & \leqslant \frac{2}{m}
+\end{align*}
+
+
+（1）：定积分第二中值定理，$\displaystyle \frac{1}{f'( g( u))}$ 单调下降。
+
+（2）：$\displaystyle \left| \int _{\xi }^{f( b)}\cos u\mathrm{d} u\right| \leqslant 2$。\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C^{1}[ 0,1]$，证明：$\displaystyle \lim _{n\rightarrow +\infty } n\int _{0}^{1} x^{n} f( x)\mathrm{d} x=f( 1)$。
+\end{ques}
+\begin{align*}
+	\int _{0}^{1} x^{n} f( x)\mathrm{d} x & =\left. \frac{1}{n+1} x^{n+1} f( x)\middle| _{0}^{1}\right. -\frac{1}{n+1}\int _{0}^{1} x^{n+1} f'( x)\mathrm{d} x\\
+	& =\frac{f( 1)}{n+1} -\frac{1}{n+1}\int _{0}^{1} x^{n+1} f'( x)\mathrm{d} x
+\end{align*}
+
+
+因为 $\displaystyle f( x) \in C^{1}[ 0,1]$，于是 $\displaystyle |f'( x) |$ 由上界，记为 $\displaystyle M$。
+
+进而
+\begin{align*}
+	\left| \frac{1}{n+1}\int _{0}^{1} x^{n+1} f'( x)\mathrm{d} x\right|  & \leqslant \frac{M}{n+1}\int _{0}^{1} x^{n+1}\mathrm{d} x\\
+	& =\frac{M}{n+1}\frac{1}{n+2}\\
+	n\left| \frac{1}{n+1}\int _{0}^{1} x^{n+1} f'( x)\mathrm{d} x\right|  & \rightarrow 0\left( n\rightarrow +\infty \right)
+\end{align*}
+
+
+因此 $\displaystyle n\rightarrow +\infty $ 时，有 $\displaystyle n\int _{0}^{1} x^{n} f( x)\mathrm{d} x=\frac{f( 1)}{n+1} -\frac{1}{n+1}\int _{0}^{1} x^{n+1} f'( x)\mathrm{d} x\rightarrow \frac{nf( 1)}{n+1}\rightarrow f( 1)$。\qed 
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 于 $\displaystyle [ a,b]$ 非负，连续，严格递增，则 $\displaystyle \forall p >0$，据定积分第一中值定理，$\displaystyle \exists x_{p} \in [ a,b] \ s.t.\ f^{p}( x_{p}) =\frac{1}{b-a}\int _{a}^{b} f^{p}( t)\mathrm{d} t$。证明：$\displaystyle \lim _{p\rightarrow +\infty } x_{p} =b$。
+\end{ques}
+
+
+
+
+
+$\displaystyle \forall \varepsilon \in \left( 0,\frac{b-a}{2}\right)$，有 $\displaystyle \int _{a}^{b} f^{p}( t)\mathrm{d} t\geqslant \int _{b-\varepsilon }^{b} f^{p}( t)\mathrm{d} t >f^{p}( b-\varepsilon ) \varepsilon $。
+
+考虑不等式 $\displaystyle f^{p}( b-\varepsilon ) \varepsilon \geqslant f^{p}( b-2\varepsilon )( b-a) \Leftrightarrow \left(\frac{f( b-\varepsilon )}{f( b-2\varepsilon )}\right)^{p} \geqslant \frac{( b-a)}{\varepsilon }$。
+
+因为 $\displaystyle \frac{f( b-\varepsilon )}{f( b-2\varepsilon )}  >1$，于是一定存在 $\displaystyle L >0$，当 $\displaystyle p >L$ 时，有 $\displaystyle \left(\frac{f( b-\varepsilon )}{f( b-2\varepsilon )}\right)^{p} \geqslant \frac{( b-a)}{\varepsilon }$，进而成立
+
+
+\begin{equation*}
+	\int _{a}^{b} f^{p}( t)\mathrm{d} t >f^{p}( b-\varepsilon ) \varepsilon \geqslant f^{p}( b-2\varepsilon )( b-a)
+\end{equation*}
+
+
+于是，$\displaystyle \exists L >0,\forall p >L,x_{p}  >b-2\varepsilon $，进而 $\displaystyle \lim _{p\rightarrow +\infty } x_{p} =b$。\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C[ a,b]$，据积分中值定理，$\displaystyle \forall x\in [ a,b] ,\exists \xi \in ( a,x) \ s.t.\ \int _{a}^{x} f( t)\mathrm{d} t=f( \xi )( x-a)$。若 $\displaystyle f'( a)$ 存在且非零，证明：$\displaystyle \lim _{x\rightarrow a}\frac{\xi -a}{x-a} =\frac{1}{2}$。
+\end{ques}
+\begin{align*}
+	\lim _{x\rightarrow a}\frac{\xi -a}{x-a} & =\lim _{x\rightarrow a}\frac{\xi -a}{f( \xi ) -f( a)} \times \frac{f( \xi ) -f( a)}{x-a}\\
+	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{f( \xi ) -f( a)}{x-a}\\
+	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{\int _{a}^{x} f( t)\mathrm{d} t-( x-a) f( a)}{( x-a)^{2}}\\
+	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{f( x) -f( a)}{2( x-a)}\\
+	& =\frac{1}{f'( a)}\frac{f'( a)}{2}\\
+	& =\frac{1}{2}
+\end{align*}
+
+（1）：洛必达法则，$\displaystyle x\rightarrow a$ 时， $\displaystyle ( x-a)^{2}\rightarrow 0$ 且 $\displaystyle \int _{a}^{x} f( t)\mathrm{d} t-( x-a) f( a)\rightarrow 0-0=0$，同时 $\displaystyle \lim _{x\rightarrow a}\frac{\int _{a}^{x} f( t)\mathrm{d} t-( x-a) f( a)}{( x-a)^{2}}$ 存在为 $\displaystyle \frac{1}{2}$。\qed 
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
