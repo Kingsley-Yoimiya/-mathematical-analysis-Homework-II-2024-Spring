@@ -60,8 +60,8 @@
 
 \begin{align*}
 	\int _{a}^{b}\cos( f( x))\mathrm{d} x & =\int _{f( a)}^{f( b)}\cos( u)\frac{1}{f'( g( u))}\mathrm{d} u\\
-	& =\frac{1}{f'( g( f( b)))}\int _{\xi }^{f( b)}\cos u\mathrm{d} u( \xi \in [ f( a) ,f( b)]\\
-	\left| \int _{a}^{b}\cos( f( x))\mathrm{d} x\right|  & \leqslant \frac{2}{m}
+	& =\frac{1}{f'( g( f( b)))}\int _{\xi }^{f( b)}\cos u\mathrm{d} u( \xi \in [ f( a) ,f( b)] &(1)\\
+	\left| \int _{a}^{b}\cos( f( x))\mathrm{d} x\right|  & \leqslant \frac{2}{m} & (2)
 \end{align*}
 
 
@@ -127,7 +127,7 @@ $\displaystyle \forall \varepsilon \in \left( 0,\frac{b-a}{2}\right)$，有 $\di
 	\lim _{x\rightarrow a}\frac{\xi -a}{x-a} & =\lim _{x\rightarrow a}\frac{\xi -a}{f( \xi ) -f( a)} \times \frac{f( \xi ) -f( a)}{x-a}\\
 	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{f( \xi ) -f( a)}{x-a}\\
 	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{\int _{a}^{x} f( t)\mathrm{d} t-( x-a) f( a)}{( x-a)^{2}}\\
-	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{f( x) -f( a)}{2( x-a)}\\
+	& =\frac{1}{f'( a)}\lim _{x\rightarrow a}\frac{f( x) -f( a)}{2( x-a)} & (1)\\
 	& =\frac{1}{f'( a)}\frac{f'( a)}{2}\\
 	& =\frac{1}{2}
 \end{align*}
