@@ -1,0 +1,89 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.11 作业}
+
+\begin{ques}
+	求区域 $\displaystyle y^{2} \leqslant x,x^{2} +y^{2} \leqslant 1$ 公共部分的面积。
+\end{ques}
+
+
+
+将其分解为 $\displaystyle x\leqslant \frac{-1+\sqrt{5}}{2}$ 区域和 $\displaystyle x\geqslant \frac{-1+\sqrt{5}}{2}$（一个弓形）。
+\begin{align*}
+	S & =\left( 2\int _{0}^{\frac{-1+\sqrt{5}}{2}}\sqrt{x}\mathrm{d} x\right) +\arccos\left(\frac{-1+\sqrt{5}}{2}\right) -\left(\frac{-1+\sqrt{5}}{2}\right) \times \sqrt{1-\left(\frac{-1+\sqrt{5}}{2}\right)^{2}}\\
+	& =\frac{\sqrt{2}\left( -1+\sqrt{5}\right)^{\frac{3}{2}}}{3} +\arccos\left(\frac{-1+\sqrt{5}}{2}\right) -\left(\frac{-1+\sqrt{5}}{2}\right)^{\frac{3}{2}}\\
+	& =\arccos\left(\frac{-1+\sqrt{5}}{2}\right) +\frac{\left( -1+\sqrt{5}\right)^{\frac{3}{2}}}{6\sqrt{2}}
+\end{align*}
+
+
+
+
+\begin{ques}
+	记四条平面曲线 $\displaystyle x=0,x=1,y=x^{3} ,y=t( t\in [ 0,1])$ 所围成的面积为 $\displaystyle S_{t}$，计算 $\displaystyle S_{t}$ 的最小值。
+\end{ques}
+
+
+\begin{align*}
+	S_{t} & =\int _{0}^{1} |t-x^{3} |\mathrm{d} x\\
+	& =\int _{0}^{\sqrt[3]{t}}\left( t-x^{3}\right)\mathrm{d} x+\int _{\sqrt[3]{t}}^{1}\left( x^{3} -t\right)\mathrm{d} x\\
+	& =\left( tx-\frac{1}{4} x^{4}\middle| _{0}^{\sqrt[3]{t}}\right) +\left(\frac{1}{4} x^{4} -tx\middle| _{\sqrt[3]{t}}^{1}\right)\\
+	& =2t\sqrt[3]{t} -\frac{1}{2}\left(\sqrt[3]{t}\right)^{4} +\frac{1}{4} -t\\
+	& =\frac{3}{2} t^{\frac{4}{3}} -t+\frac{1}{4}
+\end{align*}
+
+考虑
+
+
+\begin{align*}
+	\mathrm{\frac{\mathrm{d} S_{t}}{\mathrm{d} t}} & =2t^{\frac{1}{3}} -1
+\end{align*}
+
+
+因此 $\displaystyle S_{t}$ 在 $\displaystyle t=\frac{1}{8}$ 处取得最小值，为 $\displaystyle \frac{7}{32}$。
+
+
+
+\begin{ques}
+	求笛卡尔叶型线 $\displaystyle r=\frac{3a\sin \varphi \cos \varphi }{\sin^{3} \varphi +\cos^{3} \varphi }( a >0)$ 围成的图形面积。
+\end{ques}
+
+
+
+
+\begin{align*}
+	S & =\int _{0}^{\frac{\pi }{2}}\frac{1}{2} r^{2}\mathrm{d} \varphi \\
+	& =\frac{9a^{2}}{2}\int _{0}^{\frac{\pi }{2}}\mathrm{\frac{\sin^{2} \varphi \cos^{2} \varphi }{\left(\sin^{3} \varphi +\cos^{3} \varphi \right)^{2}} d} \varphi \\
+	& =\frac{9a^{2}}{2}\int _{0}^{+\infty }\mathrm{\frac{\tan^{2} \varphi }{\left(\tan^{3} \varphi +1\right)^{2}} d}\tan \varphi \\
+	& =\frac{9a^{2}}{2}\left( -\frac{1}{3}\frac{1}{t^{3} +1}\middle| _{0}^{+\infty }\right)\\
+	& =\frac{3a^{2}}{2}
+\end{align*}
+
+
+
+
+\begin{ques}
+	求心脏线的一段 $\displaystyle r=a( 1+\cos \theta )\left( 0\leqslant \theta \leqslant \frac{\pi }{2}\right)$ 于极轴和射线 $\displaystyle \theta =\frac{\pi }{2}$ 所围成的平面区域绕极轴旋转所得立体的体积。
+\end{ques}
+
+
+
+利用球坐标系中的体积公式：
+\begin{align*}
+	V & =\int _{0}^{\frac{\pi }{2}}\mathrm{d} \theta \int _{0}^{2\pi }\mathrm{d} \varphi \mathrm{\int _{0}^{a( 1+\cos \theta )}} r^{2}\sin \theta \mathrm{d} r\\
+	& =\int _{0}^{\frac{\pi }{2}}\mathrm{d} \theta \int _{0}^{2\pi }\mathrm{d} \varphi \frac{1}{3}( a( 1+\cos \theta ))^{3}\sin \theta \\
+	& =\frac{a^{3}}{3}\int _{0}^{2\pi }\mathrm{d} \varphi \int _{0}^{\frac{\pi }{2}}\mathrm{( 1+\cos \theta )^{3}\sin \theta d} \theta \\
+	& =\frac{a^{3}}{3}\int _{0}^{2\pi }\mathrm{d} \varphi \frac{15}{4}\\
+	& =\frac{5a^{3} \pi }{2}
+\end{align*}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
