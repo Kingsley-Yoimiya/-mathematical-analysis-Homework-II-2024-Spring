@@ -1,0 +1,160 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.20 作业}
+
+\begin{ques}
+	讨论积分的收敛性与绝对收敛性：$\displaystyle \int _{1}^{+\infty }\frac{\sin x}{x^{\alpha } +\sin x}\mathrm{d} x( \alpha  >0)$。
+\end{ques}
+
+
+
+$\displaystyle \left| \frac{\sin x}{x^{\alpha } +\sin x}\right| \leqslant \left| \frac{1}{x^{\alpha } -1}\right| $，因此 $\displaystyle \alpha  >1$ 时，该积分绝对收敛。
+
+
+\begin{align*}
+	\int _{1}^{+\infty }\frac{\sin x}{x^{\alpha } +\sin x}\mathrm{d} x & =\int _{1}^{+\infty }\left(\frac{\sin x}{x^{\alpha }} -\frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +\sin x\right)}\right)\mathrm{d} x\\
+	& =I_{1} -I_{2}
+\end{align*}
+
+对于 $\displaystyle I_{1} =\int _{1}^{+\infty }\frac{\sin x}{x^{\alpha }}\mathrm{d} x$，我们知道在 $\displaystyle \alpha  >1$ 积分绝对收敛，$\displaystyle \alpha \leqslant 1$ 时条件收敛。
+
+对于 $\displaystyle I_{2} =\int _{1}^{+\infty }\frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +\sin x\right)}\mathrm{d} x$，在 $\displaystyle 0< \alpha \leqslant \frac{1}{2}$，有：
+\begin{align*}
+	\frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +\sin x\right)} & \geqslant \frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +1\right)}
+\end{align*}
+
+
+同时
+\begin{equation*}
+	\int _{1}^{+\infty }\frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +1\right)}\mathrm{d} x
+\end{equation*}
+
+发散，因此此时 $\displaystyle I_{2}$ 发散。
+
+当 $\displaystyle \alpha  >\frac{1}{2}$，有
+\begin{align*}
+	\frac{\sin^{2} x}{x^{\alpha }\left( x^{\alpha } +\sin x\right)} & \leqslant \frac{1}{x^{\alpha }\left( x^{\alpha } -1\right)}
+\end{align*}
+
+同时
+\begin{equation*}
+	\int _{1}^{+\infty }\frac{1}{x^{\alpha }\left( x^{\alpha } -1\right)}\mathrm{d} x
+\end{equation*}
+
+绝对收敛，此时 $\displaystyle I_{2}$ 绝对收敛。
+
+原来积分在 $\displaystyle \alpha  >1$ 时绝对收敛，在 $\displaystyle \frac{1}{2} < \alpha \leqslant 1$ 时条件收敛，在 $\displaystyle \alpha \leqslant \frac{1}{2}$ 发散。\qed 
+
+
+
+
+
+\begin{ques}
+	（1）讨论积分 $\displaystyle I_{1} =\int _{0}^{+\infty }\frac{\cos x}{1+x}\mathrm{d} x$ 与 $\displaystyle I_{2} =\int _{0}^{+\infty }\frac{\sin x}{( 1+x)^{2}}\mathrm{d} x$ 的收敛性和绝对收敛性。
+
+（2）证明 $\displaystyle I_{1} =I_{2}$。
+\end{ques}
+
+
+
+（1）
+
+对于 $\displaystyle I_{2}$，有
+\begin{align*}
+	\left| \frac{\sin x}{( 1+x)^{2}}\right|  & \leqslant \frac{1}{( 1+x)^{2}}
+\end{align*}
+
+
+而 $\displaystyle \int _{0}^{+\infty }\mathrm{\frac{1}{( 1+x)^{2}} d} x$ 收敛，因此 $\displaystyle I_{2}$ 绝对收敛。
+
+对于 $\displaystyle I_{1}$，有 $\displaystyle \left| \int _{0}^{+\infty }\cos x\mathrm{d} x\right| \leqslant 2,\frac{1}{1+x}$ 单调下降且 $\displaystyle \rightarrow 0\left( x\rightarrow +\infty \right)$，由狄利克雷判别法可知其收敛。对于其绝对收敛性，其与 $\displaystyle \int _{0}^{+\infty }\frac{|\cos x|}{x}\mathrm{d} x$ 收敛性相同，因此条件收敛。
+
+故 $\displaystyle I_{1}$ 条件收敛。
+
+
+
+（2）
+
+
+\begin{align*}
+	I_{1} & =\int _{0}^{+\infty }\frac{\cos x}{1+x}\mathrm{d} x\\
+	& =\left(\frac{\sin x}{1+x}\middle| _{0}^{+\infty }\right) +\int _{0}^{+\infty }\frac{\sin x}{( 1+x)^{2}}\mathrm{dx}\\
+	& =\int _{0}^{+\infty }\frac{\sin x}{( 1+x)^{2}}\mathrm{d} x\\
+	& =I_{2}
+\end{align*}
+\qed 
+
+
+
+\begin{ques}
+	设两个单调下降的正函数 $\displaystyle f( x) ,g( x) \in C[ 0,+\infty ) ,\int _{0}^{+\infty } f( x)\mathrm{d} x,\int _{0}^{+\infty } g( x)\mathrm{d} x$ 都发散，记 $\displaystyle h( x) =\min\{f( x) ,g( x)\} ,x\in [ 0,+\infty )$，问 $\displaystyle \int _{0}^{+\infty } h( x)\mathrm{d} x$ 是否也必定发散。
+\end{ques}
+
+
+
+不一定，令 $\displaystyle h( x) =\begin{cases}
+	1 & ,x\in [ 0,1]\\
+	\frac{1}{x^{2}} & ,x\in ( 1,+\infty )
+\end{cases}$，同时构造数列 $\displaystyle a_{n} =2^{2^{n}} ,s_{n} =\sum _{i=0}^{n-1} a_{i}$，定义
+
+
+\begin{align*}
+	f( x) & =\begin{cases}
+		h( x) & ,t\bmod 2=1\\
+		\frac{1}{s_{t}^{2}} & ,t\bmod 2=0
+	\end{cases} ,x\in [ s_{t} ,s_{t+1}]\\
+	g( x) & =\begin{cases}
+		h( x) & ,t\bmod 2=0\\
+		\frac{1}{s_{t}^{2}} & ,t\bmod 2=1
+	\end{cases} ,x\in [ s_{t} ,s_{t+1}]
+\end{align*}
+
+
+以 $\displaystyle f( x)$ 为例，对于任何 $\displaystyle X >0$，都可以找到 $\displaystyle t\ s.t.\ s_{t} \geqslant X\land t\bmod 2=0$，进而有 $\displaystyle \int _{s_{t}}^{s_{t+1}} f( x)\mathrm{d} x=\frac{1}{s_{t}^{2}} a_{t} =\frac{2^{2^{t}}}{2^{2^{0}} +2^{2^{1}} +\cdots +2^{2^{t-1}}} \geqslant 1$。进而 $\displaystyle f( x)$ 发散，类似地可以推出 $\displaystyle g( x)$ 发散，但是根据定义 $\displaystyle \int _{0}^{+\infty } h( x)\mathrm{d} x$ 收敛。
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 在区间 $\displaystyle [ a,+\infty )$ 上单调，并且 $\displaystyle \int _{a}^{+\infty } f( x)\mathrm{d} x$ 收敛，证明：$\displaystyle \lim _{p\rightarrow \infty }\int _{a}^{+\infty } f( x)\sin px\mathrm{d} x=0$。
+\end{ques}
+
+
+
+首先证明 $\displaystyle \lim _{x\rightarrow +\infty } f( x) =0$：
+
+不妨假设 $\displaystyle f( x)$ 单调下降，令 $\displaystyle \lim _{x\rightarrow +\infty } f( x) =m$，如果 $\displaystyle m >0$ 则 $\displaystyle \int _{a}^{t} f( x)\mathrm{d} x\geqslant m( t-a)$，因此 $\displaystyle \int _{a}^{+\infty } f( x)\mathrm{d} x$ 不收敛。如果 $\displaystyle m< 0$，$\displaystyle \forall \varepsilon \in ( 0,m) ,$ $\displaystyle X\geqslant a$，都可以找到 $\displaystyle X< Y\ s.t.\ f( Y) < m+\varepsilon ,$进而 $\displaystyle \left| \int _{Y}^{Y+2\frac{\varepsilon }{-m-\varepsilon }} f( x)\mathrm{d} x\right| \geqslant 2\varepsilon $，进而 $\displaystyle \int _{a}^{+\infty } f( x)\mathrm{d} x$ 发散。
+
+因此 $\displaystyle \lim _{x\rightarrow +\infty } f( x) =0$。
+
+接着根据定积分第二中值定理，有（其中 $\displaystyle f( a+)$ 表示 $\displaystyle x\rightarrow a+$ 时 $\displaystyle f( x)$ 极限，由于收敛，该值一定存在）：
+
+
+\begin{align*}
+	\int _{a}^{+\infty } f( x)\sin px\mathrm{d} x & =f( a+)\int _{a}^{\xi }\sin px\mathrm{d} x\\
+	\left| \int _{a}^{+\infty } f( x)\sin px\mathrm{d} x\right|  & \leqslant \left| f( a+)\frac{2}{p}\right| 
+\end{align*}
+
+当 $\displaystyle p\rightarrow +\infty $，$\displaystyle \left| \int _{a}^{+\infty } f( x)\sin px\mathrm{d} x\right| \rightarrow 0$，进而$\displaystyle \lim _{p\rightarrow \infty }\int _{a}^{+\infty } f( x)\sin px\mathrm{d} x=0$。\qed 
+
+
+
+\begin{ques}
+	讨论 $\displaystyle \int _{1}^{+\infty }\frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }}\mathrm{d} x,\alpha  >0$ 的敛散性。
+\end{ques}
+
+
+
+因为 \ $\displaystyle \frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }} \geqslant 0,\lim _{x\rightarrow +\infty }\frac{\frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }}}{\frac{\sin^{2}\frac{x}{2}}{( x)^{\alpha }}} =1$，因此 $\displaystyle \int _{1}^{+\infty }\frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }}\mathrm{d} x$ 和$\displaystyle \int _{1}^{+\infty }\frac{\sin^{2}\frac{x}{2}}{x^{\alpha }}\mathrm{d} x$ 敛散性相同。
+
+因此，当 $\displaystyle \alpha  >1$ 时 $ $$\displaystyle \int _{1}^{+\infty }\frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }}\mathrm{d} x$ 收敛，当 $\displaystyle 0< \alpha \leqslant 1$ 时 $\displaystyle \int _{1}^{+\infty }\frac{\sin^{2}\frac{x}{2}}{( x+\sin x)^{\alpha }}\mathrm{d} x$ 发散。
+\ifx\allfiles\undefined
+\end{document}
+\fi
