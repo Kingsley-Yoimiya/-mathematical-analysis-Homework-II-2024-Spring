@@ -1,0 +1,83 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.18 作业}
+\begin{ques}
+	设 $\displaystyle f( x) =\lim _{n\rightarrow \infty }\int _{0}^{1}\frac{nt^{n-1}}{1+e^{xt}}\mathrm{d} t$，计算 $\displaystyle I=\int _{0}^{+\infty } f( x)\mathrm{d} x$。
+\end{ques}
+
+
+
+
+\begin{align*}
+	\int _{0}^{1}\frac{nt^{n-1}}{1+e^{xt}}\mathrm{d} t & =\left(\frac{t^{n}}{1+e^{xt}}\middle| _{0}^{1}\right) -\int _{0}^{1}\frac{t^{n} e^{xt} x}{\left( 1+e^{xt}\right)^{2}}\mathrm{d} t\\
+	& =\frac{1}{1+e^{x}} -\int _{0}^{1}\frac{t^{n} e^{xt} x}{\left( 1+e^{xt}\right)^{2}}\mathrm{d} t
+\end{align*}
+
+
+而考虑
+
+
+\begin{align*}
+	0\leqslant \int _{0}^{1}\frac{t^{n} e^{xt} x}{\left( 1+e^{xt}\right)^{2}}\mathrm{d} t & \leqslant \int _{0}^{1}\frac{t^{n} x}{1+e^{xt}}\mathrm{d} t\\
+	& \leqslant x\int _{0}^{1} t^{n}\mathrm{d} t\\
+	& =\frac{x}{n}
+\end{align*}
+
+当 $\displaystyle n\rightarrow +\infty $ 时，$\displaystyle 0\leqslant \int _{0}^{1}\frac{t^{n} e^{xt} x}{\left( 1+e^{xt}\right)^{2}}\mathrm{d} t\leqslant \frac{x}{n}\rightarrow 0$，因此，$\displaystyle f( x) =\frac{1}{1+e^{x}}$。
+
+
+\begin{align*}
+I & =\int _{0}^{+\infty } f( x)\mathrm{d} x\\
+& =\int _{0}^{+\infty }\mathrm{\frac{1}{1+e^{x}} d} x\\
+& =\int _{0}^{+\infty }\left( 1-\frac{e^{x}}{1+e^{x}}\right) \mathrm{d} x\\
+& =\left(\ln\left(\frac{e^{x}}{1+e^{x}}\right)\middle| _{0}^{+\infty }\right)\\
+& =\ln 2
+\end{align*}
+
+
+
+
+\begin{ques}
+	讨论积分的敛散性：$\displaystyle I=\int _{0}^{+\infty }\frac{\sin x}{1+e^{-x}}\mathrm{d} x$。
+\end{ques}
+
+
+
+
+\begin{align*}
+	I & =\int _{0}^{+\infty }\frac{\sin x}{1+e^{-x}}\mathrm{d} x\\
+	& =\int _{0}^{+\infty }\sin x\mathrm{d} x+\int _{0}^{+\infty }\sin x\left(\frac{1}{1+e^{-x}} -1\right)\mathrm{d} x
+\end{align*}
+
+对于 $\displaystyle \int _{0}^{+\infty }\sin x\left(\frac{1}{1+e^{-x}} -1\right)\mathrm{d} x$，我们发现 $\displaystyle \left| \int _{0}^{+\infty }\sin x\mathrm{d} x\right| \leqslant 2$，同时 $\displaystyle \frac{1}{1+e^{-x}} -1$ 单调递增且 $\displaystyle \rightarrow 0\left( x\rightarrow +\infty \right)$。于是 $\displaystyle \int _{0}^{+\infty }\sin x\left(\frac{1}{1+e^{-x}} -1\right)\mathrm{d} x$ 收敛。
+
+对于 $\displaystyle \int _{0}^{+\infty }\sin x\mathrm{d} x$，显然是发散的，进而 $\displaystyle I$ 是发散的。\qed 
+
+
+
+\begin{ques}
+	讨论积分 $\displaystyle I=\int _{0}^{+\infty }\ln\left(\cos\frac{1}{x} +\sin^{p}\frac{1}{x}\right)\mathrm{d} x( p >1)$ 的敛散性。
+\end{ques}
+
+
+
+当 $\displaystyle x\rightarrow +\infty $ 是，$\displaystyle \cos\frac{1}{x} +\sin^{p}\frac{1}{x}\rightarrow 1$ 同时 $\displaystyle \ln\left(\cos\frac{1}{x} +\sin^{p}\frac{1}{x}\right)$ 定号，运用极限形式的比较判别法，
+
+$\displaystyle I$ 和 $\displaystyle \int _{0}^{+\infty }\left(\cos\frac{1}{x} +\sin^{p}\frac{1}{x} -1\right)\mathrm{d} x$ 的敛散性相同。
+
+进一步运用极限形式的比较判别法，可以得到 $\displaystyle I$ 和 $\displaystyle \int _{0}^{+\infty }\left( -\frac{1}{2x^{2}} +\frac{1}{x^{p}}\right)\mathrm{d} x$ 的敛散性相同。
+
+而 $\displaystyle p >1$ 因此 $\displaystyle I$ 收敛。\qed 
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
