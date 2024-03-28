@@ -1,0 +1,98 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.27 作业}
+\begin{ques}
+判断级数是否收敛，若收敛，请求和：$\displaystyle \sum _{n=1}^{+\infty }\frac{n}{3^{n}}$。
+\end{ques}
+
+
+\begin{align*}
+	\sum _{n=1}^{+\infty }\frac{n}{3^{n}} & =\lim _{N\rightarrow \infty }\sum _{n=1}^{+\infty }\frac{1}{3^{n}} +\sum _{n=2}^{+\infty }\frac{1}{3^{n}} +\cdots +\sum _{n=N}^{+\infty }\frac{1}{3^{n}}\\
+	& =\lim _{N\rightarrow \infty }\frac{\frac{1}{3} +\frac{1}{9} +\cdots +\frac{1}{3^{N}}}{\frac{2}{3}}\\
+	& =\frac{\frac{1}{2}}{\frac{2}{3}} =\frac{4}{3}
+\end{align*}
+
+
+因此，该级数收敛，并且和为 $\displaystyle \frac{4}{3}$。\qed 
+
+
+
+
+
+\begin{ques}
+	判断级数的敛散性：$\displaystyle \sum _{n=1}^{+\infty }\left(\frac{\left( 1+\frac{1}{n}\right)^{n}}{e}\right)^{n}$。
+\end{ques}
+
+
+
+
+
+考虑
+
+
+\begin{align*}
+	\left(\frac{\left( 1+\frac{1}{n}\right)^{n}}{e}\right)^{n} & \geqslant \left(\frac{\left( 1+\frac{1}{n}\right)^{n}}{\left( 1+\frac{1}{n}\right)^{n+1}}\right)^{n}\\
+	& =\frac{1}{\left( 1+\frac{1}{n}\right)^{n}}\\
+	\lim _{n\rightarrow +\infty }\frac{1}{\left( 1+\frac{1}{n}\right)^{n}} & =\frac{1}{e}
+\end{align*}
+
+
+因此
+
+
+\begin{equation*}
+	\lim _{n\rightarrow +\infty }\left(\frac{\left( 1+\frac{1}{n}\right)^{n}}{e}\right)^{n} \geqslant \frac{1}{e}  >0
+\end{equation*}
+
+
+故级数发散。\qed 
+
+
+
+\begin{ques}
+	判断级数的敛散性：$\displaystyle \sum _{n=1}^{+\infty }\frac{a^{n}}{1+a^{kn}}( a >0,k >1)$。
+\end{ques}
+
+
+\begin{align*}
+	\frac{a^{n}}{1+a^{kn}} & =\frac{1}{a^{-n} +a^{( k-1) n}}
+\end{align*}
+
+
+当 $\displaystyle a=1$ 时，级数发散。
+
+当 $\displaystyle a >1$ 时，级数和 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{a^{( k-1) n}}$ 同敛散，因此收敛。
+
+当 $\displaystyle a< 1$ 时，级数和 $\displaystyle \sum _{n=1}^{+\infty } a^{n}$ 同敛散，因此收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	判断级数的敛散性：$\displaystyle \sum _{n=1}^{+\infty } n^{p}\left(\sqrt{n+1} -2\sqrt{n} +\sqrt{n-1}\right)$。
+\end{ques}
+
+
+
+
+\begin{align*}
+	\sum _{n=1}^{+\infty } n^{p}\left(\sqrt{n+1} -2\sqrt{n} +\sqrt{n-1}\right) & =\sum _{n=1}^{+\infty } n^{p+\frac{1}{2}}\left(\sqrt{\frac{n+1}{n}} +\sqrt{\frac{n-1}{n}} -2\right) & \\
+	& =\sum _{n=1}^{+\infty } n^{p+\frac{1}{2}}\left( -\frac{1}{2}\frac{1}{n^{2}} +o\left(\frac{1}{n^{3}}\right)\right) & ( 1)
+\end{align*}
+
+
+（1）：利用 $\displaystyle ( 1+x)^{\frac{1}{2}} =1+\frac{1}{2} x-\frac{1}{4} x^{2} +o\left( x^{3}\right)$。
+
+因此，原级数和 $\displaystyle \sum _{n=1}^{+\infty } n^{p-\frac{3}{2}}$ 相同，当 $\displaystyle p-\frac{3}{2} < -1\ i.e.\ p< \frac{1}{2}$ 时收敛，当 $\displaystyle p\geqslant \frac{1}{2}$ 时发散。\qed 
+\ifx\allfiles\undefined
+\end{document}
+\fi
