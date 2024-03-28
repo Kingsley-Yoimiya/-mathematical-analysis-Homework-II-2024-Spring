@@ -1,0 +1,57 @@
+name: Compile LaTeX document
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 
+      image: danteev/texlive  # 使用包含 TeX Live 的 Docker 镜像
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Compile LaTeX Document
+        run: |
+          find . -name '*.tex' -exec xelatex {} -shell-escape -interaction=nonstopmode -synctex=1 \;
+     
+      - name: Create and Push Tag
+        run: |
+          TAG_NAME="release-$(date +'%Y%m%d%H%M%S')"
+          echo "Creating tag $TAG_NAME"
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: Release ${{ env.TAG_NAME }}
+          draft: false
+          prerelease: false
+
+      - name: Install GitHub CLI
+        run: |
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh
+       
+      - name: Upload all PDF files to Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in $(find . -name '*.pdf'); do
+          echo "Uploading $file"
+          gh release upload ${{ env.TAG_NAME }} "$file" --clobber
+        done
+
+
