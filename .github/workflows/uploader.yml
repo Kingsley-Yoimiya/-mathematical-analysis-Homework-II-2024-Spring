@@ -23,7 +23,7 @@ jobs:
 
       - name: Compile LaTeX Document
         run: |
-          find . -name '*.tex' -exec xelatex {} -shell-escape -interaction=nonstopmode -synctex=1 \;
+          find . -name 'week*.tex' -exec xelatex {} -shell-escape -interaction=nonstopmode -synctex=1 \;
      
       - name: Create and Push Tag
         run: |
