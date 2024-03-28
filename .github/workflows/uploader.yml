@@ -50,8 +50,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           for file in $(find . -name '*.pdf'); do
-          echo "Uploading $file"
-          gh release upload ${{ env.TAG_NAME }} "$file" --clobber
-        done
+             echo "Uploading $file"
+             gh release upload ${{ env.TAG_NAME }} "$file" --clobber
+          done
 
 
