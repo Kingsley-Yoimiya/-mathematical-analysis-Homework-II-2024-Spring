@@ -1,5 +1,8 @@
 name: Compile LaTeX document
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
