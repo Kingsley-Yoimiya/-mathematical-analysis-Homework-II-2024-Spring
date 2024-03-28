@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      
+      - name: Configure Git to allow the directory
+        run: git config --global --add safe.directory /__w/-mathematical-analysis-Homework-II-2024-Spring/-mathematical-analysis-Homework-II-2024-Spring
 
       - name: Compile LaTeX Document
         run: |
