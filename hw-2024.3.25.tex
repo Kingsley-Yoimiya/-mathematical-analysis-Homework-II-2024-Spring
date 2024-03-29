@@ -1,0 +1,134 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.3.25 作业}
+
+\begin{ques}
+	讨论积分的敛散性：$\displaystyle I=\int _{0}^{1}\frac{\sin\frac{1}{x}}{x^{\frac{3}{2}}\ln\left( 1+\frac{1}{x}\right)}\mathrm{d} x$。
+\end{ques}
+
+\begin{align*}
+	I & =\int _{0}^{1}\frac{\sin\frac{1}{x}}{x^{\frac{3}{2}}\ln\left( 1+\frac{1}{x}\right)}\mathrm{d} x & \\
+	& =-\int _{1}^{+\infty }\frac{\sin t}{\ln( 1+t) t^{\frac{1}{2}}}\mathrm{d} t & t=\frac{1}{x}
+\end{align*}
+
+
+因为 $\displaystyle \frac{1}{\ln( 1+t) t^{\frac{1}{2}}}$ 单调且 $\displaystyle \rightarrow 0\left( t\rightarrow +\infty \right)$，$\displaystyle \left| \int _{1}^{+\infty }\sin t\mathrm{d} t\right| \leqslant 2$，因此 $\displaystyle I$ 收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	讨论积分敛散性：$\displaystyle I=\int _{0}^{+\infty }\left(\left( 1-\frac{\sin x}{x}\right)^{-\alpha } -1\right)\mathrm{d} x,\alpha  >0$。
+\end{ques}
+
+
+\begin{align*}
+	I & =\int _{0}^{1}\left(\left( 1-\frac{\sin x}{x}\right)^{-\alpha } -1\right)\mathrm{d} x+\int _{1}^{+\infty }\left(\left( 1-\frac{\sin x}{x}\right)^{-\alpha } -1\right)\mathrm{d} x\\
+	& =I_{1} +I_{2}
+\end{align*}
+
+
+考虑 $\displaystyle I_{1}$，因 $\displaystyle \sin x=x-\frac{1}{6} x^{3} +o\left( x^{5}\right)\left( x\rightarrow 0\right)$，则 $\displaystyle I_{1}$ 的敛散性和：
+\begin{equation*}
+	\int _{0}^{1}\left(\left( -\frac{1}{6}\right)^{-\alpha } x^{-2\alpha } -1\right)\mathrm{d} x
+\end{equation*}
+
+
+相同，于是当 $\displaystyle -2\alpha  >-1\ i.e.\ \alpha < \frac{1}{2}$ 时 $\displaystyle I_{1}$ 收敛，当 $\displaystyle \alpha \geqslant \frac{1}{2}$ 时 $\displaystyle I_{1}$ 发散。
+
+考虑 $\displaystyle I_{2}$，因 $\displaystyle \left( 1-\frac{\sin x}{x}\right)^{-\alpha } -1=\alpha \frac{\sin x}{x} +o\left(\left(\frac{\sin x}{x}\right)^{2}\right) =( \alpha +o( 1))\left(\frac{\sin x}{x}\right) ,x\rightarrow +\infty $，因此 $\displaystyle I_{2}$ 收敛。
+
+因此，$\displaystyle 0< \alpha < \frac{1}{2}$ 时 $\displaystyle I$ 收敛，$\displaystyle \alpha \geqslant \frac{1}{2}$ 时 $\displaystyle I$ 发散。\qed 
+
+
+
+\begin{ques}
+	讨论 $\displaystyle I=\int _{0}^{+\infty }\frac{\sin x^{2}}{x^{p}}\mathrm{d} x$ 的敛散性和绝对收敛性，其中 $\displaystyle p\in \mathbb{R}$ 是常数。
+\end{ques}
+
+\begin{align*}
+	I & =\int _{0}^{1}\frac{\sin x^{2}}{x^{p}}\mathrm{d} x+\int _{1}^{+\infty }\frac{\sin x^{2}}{x^{p}}\mathrm{d} x\\
+	& =I_{1} +I_{2}
+\end{align*}
+
+
+对于 $\displaystyle I_{2}$，有
+
+
+\begin{align*}
+	I_{2} & =\int _{1}^{+\infty }\frac{\sin t}{2t^{\frac{p+1}{2}}}\mathrm{d} t
+\end{align*}
+因此，当 $\displaystyle \frac{p+1}{2}  >1\ i.e.\ p >1$ 时 $\displaystyle I_{2}$ 绝对收敛，当 $\displaystyle 0< \frac{p+1}{2} \leqslant 1\ i.e.\ -1< p\leqslant 1$ 时 $\displaystyle I_{2}$ 条件收敛。
+
+对于 $\displaystyle I_{1}$，因为 $\displaystyle \sin x^{2} \sim x^{2}\left( x\rightarrow 0\right)$，于是其和 
+\begin{equation*}
+	\int _{0}^{1}\frac{1}{x^{p-2}}\mathrm{d} x
+\end{equation*}
+
+
+敛散性相同，当 $\displaystyle p\geqslant 3$ 时 $\displaystyle I_{1}$ 发散，当 $\displaystyle p< 3$ 时收敛。
+
+综上所述，$\displaystyle I$ 在 $\displaystyle -1< p\leqslant 1$ 时条件收敛，$\displaystyle 1< p< 3$ 时绝对收敛，$\displaystyle p\geqslant 3$ 时发散。\qed 
+
+
+
+
+
+\begin{ques}
+	讨论积分的收敛性和绝对收敛性：$\displaystyle I=\int _{0}^{+\infty }\frac{x^{\alpha }\sin x}{1+x^{\beta }}\mathrm{d} x$，其中 $\displaystyle \alpha ,\beta $ 为常数。
+\end{ques}
+
+
+\begin{align*}
+	I & =\int _{0}^{1}\frac{x^{\alpha }\sin x}{1+x^{\beta }}\mathrm{d} x+\int _{1}^{+\infty }\frac{x^{\alpha }\sin x}{1+x^{\beta }}\mathrm{d} x\\
+	& =I_{1} +I_{2}
+\end{align*}
+
+
+对于 $\displaystyle I_{2}$ 有 $\displaystyle \frac{x^{\alpha }\sin x}{1+x^{\beta }} =\frac{\sin x}{x^{-\alpha } +x^{\beta -\alpha }}$。
+
+当 $\displaystyle \beta -\alpha \geqslant -\alpha \ i.e.\ \beta \geqslant 0$ 时，$\displaystyle \frac{x^{\alpha }\sin x}{1+x^{\beta }} =\frac{\sin x}{x^{\beta -\alpha }}\frac{x^{\beta -\alpha }}{x^{-\alpha } +x^{\beta -\alpha }}$，$\displaystyle \frac{x^{\beta -\alpha }}{x^{-\alpha } +x^{\beta -\alpha }}$ 单调有界且定号，因此 \ $\displaystyle \frac{x^{\alpha }\sin x}{1+x^{\beta }}$ 和 $\displaystyle \frac{\sin x}{x^{\beta -\alpha }}$ 收敛性和绝对收敛性相同。
+
+于是当 $\displaystyle \beta -\alpha  >1$ 时，$\displaystyle I_{2}$ 绝对收敛，当 $\displaystyle 0< \beta -\alpha \leqslant 1\ i.e.\ \alpha < \beta \leqslant \alpha +1$ 时，$\displaystyle I_{2}$ 条件收敛，其余时候 $\displaystyle I_{2}$ 发散。
+
+当 $\displaystyle \beta < 0$ 时，类似地 $\displaystyle \frac{x^{\alpha }\sin x}{1+x^{\beta }}$ 和 $\displaystyle \frac{\sin x}{x^{-\alpha }}$ 收敛性和绝对收敛性相同，当 $\displaystyle -\alpha  >1\ i.e.\ \alpha < -1$ 时绝对收敛，当 $\displaystyle -1\leqslant \alpha < 0$ 时条件收敛，其余情况发散。
+
+
+
+对于 $\displaystyle I_{1}$ 有 $\displaystyle \frac{x^{\alpha }\sin x}{1+x^{\beta }}\rightarrow \frac{1}{x^{-\alpha -1} +x^{\beta -\alpha -1}}\left( x\rightarrow 0\right)$。
+
+当 $\displaystyle \beta \geqslant 0$ 时如果 $\displaystyle -\alpha -1< 1\ i.e.\ \alpha  >-2$ 绝对收敛，其余情况发散。
+
+当 $\displaystyle \beta < 0$ 时如果 $\displaystyle \beta -\alpha -1< 1\ i.e.\ \beta -\alpha < 2$ 时绝对收敛，其余情况发散。
+
+综上所述，
+
+$\displaystyle \beta \geqslant 0$ 时，$\displaystyle \beta  >\alpha +1\land \alpha  >-2$ 时绝对收敛，$\displaystyle \alpha < \beta \leqslant \alpha +1\land \alpha  >-2$ 时条件收敛，其余情况发散。
+
+$\displaystyle \beta < 0$ 时，$\displaystyle \alpha < -1\land \beta -\alpha < 2$ 时绝对收敛，$\displaystyle -1\leqslant \alpha < 0\land \beta -\alpha < 2$ 时条件收敛，其余情况发散。\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C[ 0,+\infty ) ,\alpha =\lim _{x\rightarrow +\infty } f( x) ,\int _{0}^{1}\frac{f( x)}{x}\mathrm{d} x$ 收敛，证明：$\displaystyle \int _{0}^{+\infty }\frac{f( ax) -f( bx)}{x}\mathrm{d} x=\alpha \ln\frac{a}{b} ,\forall 0< a< b$。
+\end{ques}
+
+
+
+
+
+
+
+TBD。
+\ifx\allfiles\undefined
+\end{document}
+\fi
