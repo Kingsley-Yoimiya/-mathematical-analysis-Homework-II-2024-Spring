@@ -123,12 +123,23 @@ $\displaystyle \beta < 0$ 时，$\displaystyle \alpha < -1\land \beta -\alpha < 
 \end{ques}
 
 
+\begin{align*}
+	I & =\int _{0}^{+\infty }\frac{f( ax) -f( bx)}{x}\mathrm{d} x & \\
+	& =\int _{0}^{1}\frac{f( ax) -f( bx)}{x}\mathrm{d} x+\int _{1}^{+\infty }\frac{f( ax) -f( bx)}{x}\mathrm{d} x & \\
+	& =I_{1} +I_{2} & \\
+	I_{1} & =\int _{0}^{1}\frac{f( ax)}{x}\mathrm{d} x-\int _{0}^{1}\frac{f( bx)}{x}\mathrm{d} x & \\
+	& =\int _{0}^{a}\frac{f( ax)}{x}\mathrm{d} x-\int _{0}^{b}\frac{f( bx)}{x}\mathrm{d} x & \\
+	& =\int _{a}^{b}\frac{f( x)}{x}\mathrm{d} x & \\
+	I_{2} & =\lim _{A\rightarrow +\infty }\int _{1}^{A}\frac{f( ax)}{x}\mathrm{d} x-\int _{1}^{A}\frac{f( bx)}{x}\mathrm{d} x & \\
+	& =\left(\lim _{A\rightarrow +\infty }\int _{bA}^{aA}\frac{f( x)}{x}\mathrm{d} x\right) -\int _{a}^{b}\frac{f( x)}{x}\mathrm{d} x & \\
+	& =\left(\lim _{A\rightarrow +\infty } f( \eta _{1})\ln\frac{a}{b}\right) -\int _{a}^{b}\frac{f( x)}{x}\mathrm{d} x & \eta _{1} \in ( aA,bA)( 1)\\
+	& =\alpha \ln\frac{a}{b} -\int _{a}^{b}\frac{f( x)}{x}\mathrm{d} x & \\
+	I & =I_{1} +I_{2} & \\
+	& =\alpha \ln\frac{a}{b} & 
+\end{align*}
 
 
-
-
-
-TBD。
+（1）：定积分第一中值定理。\qed 
 \ifx\allfiles\undefined
 \end{document}
 \fi
