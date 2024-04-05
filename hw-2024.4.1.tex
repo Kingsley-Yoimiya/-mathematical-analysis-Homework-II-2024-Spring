@@ -1,0 +1,152 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.4.1 作业}
+\begin{ques}
+	判断级数的敛散性 $\displaystyle \sum _{n=1}^{+\infty }\left(\frac{( 2n) !!}{( 2n+3) !!}\right)^{p}( p >0)$。
+\end{ques}
+
+
+
+对于 $\displaystyle a_{n} =\left(\frac{( 2n) !!}{( 2n+3) !!}\right)^{p} ,\frac{a_{n}}{a_{n+1}} =\left(\frac{2n+5}{2n+2}\right)^{p}$，有
+
+
+\begin{align*}
+	\lim _{n\rightarrow +\infty } n\left(\frac{a_{n}}{a_{n+1}} -1\right) & =\lim _{n\rightarrow +\infty } n\left(\left(\frac{2n+5}{2n+2}\right)^{p} -1\right) & \\
+	& =\lim _{t\rightarrow 0+}\frac{\left(\frac{2+5t}{2+2t}\right)^{p} -1}{t} & ( 1)\\
+	& =\lim _{t\rightarrow 0+}\frac{p\left(\frac{2+5t}{2+2t}\right)^{p-1}\frac{6}{( 2+2t)^{2}}}{1} & ( 2)\\
+	& =\frac{3}{2} p & 
+\end{align*}
+
+
+（1）：令 $\displaystyle t=\frac{1}{n}$。
+
+（2）：因为 $\displaystyle t\rightarrow 0,\left(\frac{2+5t}{2+2t}\right)^{p} -1\rightarrow 0$ 且 $\displaystyle \lim _{t\rightarrow 0+}\frac{p\left(\frac{2+5t}{2+2t}\right)^{p-1}\frac{6}{( 2+2t)^{2}}}{1}$ 存在，因此使用洛必达法则。
+
+考虑拉贝判别法，当 $\displaystyle \lim _{n\rightarrow +\infty } n\left(\frac{a_{n}}{a_{n+1}} -1\right)  >1\ i.e.\ p >\frac{2}{3}$ 时，有原级数收敛，当 $\displaystyle p< \frac{2}{3}$ 时原级数发散，当 $\displaystyle p=\frac{2}{3}$ 时，$\displaystyle \frac{a_{n}}{a_{n+1}} =1+\frac{1}{n} +o\left(\frac{1}{n}\right) =1+\frac{1}{n} +O\left(\frac{1}{n^{1+\varepsilon }}\right)\left( n\rightarrow +\infty ,\exists \varepsilon  >0\right)$，由高斯判别法，发散。
+
+综上，当 $\displaystyle p >\frac{2}{3}$ 时原级数收敛，当 $\displaystyle p\leqslant \frac{2}{3}$ 时原级数发散。\qed 
+
+
+
+\begin{ques}
+	判断级数的敛散性：$\displaystyle \sum _{n=1}^{+\infty }\frac{1-n\sin\frac{1}{n}}{n^{\alpha }}( \alpha  >0)$。
+\end{ques}
+
+
+
+$\displaystyle n\rightarrow +\infty $ 时，$\displaystyle \sin\frac{1}{n} =\frac{1}{n} -\frac{1}{6n^{3}} +o\left(\frac{1}{n^{3}}\right)$。
+
+因此，
+\begin{align*}
+	\sum _{n=1}^{+\infty }\frac{1-n\sin\frac{1}{n}}{n^{\alpha }} & =\sum _{n=1}^{+\infty }\frac{\frac{1}{6n^{2}} +o\left(\frac{1}{n^{2}}\right)}{n^{\alpha }} & \\
+	& =\sum _{n=1}^{+\infty }\frac{1}{6n^{\alpha +2}} & ( 1)
+\end{align*}
+
+（1）：该级数为正，使用极限形式的比较判别法。
+
+因为 $\displaystyle \alpha  >0$，显然该级数收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	设对于 $\displaystyle \forall n\in \mathbb{N}$ 有 $\displaystyle a_{n}  >0$ 并且 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 发散，记 $\displaystyle S_{n} =\sum _{k=1}^{n} a_{k}$，证明：
+
+（1）级数 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{S_{n}}$ 发散；（2）级数 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{S_{n}^{2}}$收敛；（3）级数 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{1+a_{n}}$ 发散；（4）$\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{1+n^{2} a_{n}}$收敛。
+\end{ques}
+
+
+
+
+
+（1）考虑反证，如果 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{S_{n}}$ 收敛，那么 $\displaystyle \frac{a_{n}}{S_{n}} =\frac{S_{n} -S_{n-1}}{S_{n}}\rightarrow 0$ 因为 $\displaystyle S_{n}$ 发散且 $\displaystyle  >0$，所以 $\displaystyle S_{n} -S_{n-1}\rightarrow 0$，这与发散矛盾。\qed 
+
+
+
+（2）
+\begin{align*}
+	\sum _{n=1}^{+\infty }\frac{a_{n}}{S_{n}^{2}} & \leqslant 1+\sum _{n=2}^{+\infty }\frac{a_{n}}{S_{n} S_{n-1}}\\
+	& =1-\sum _{n=2}^{+\infty }\int _{S_{n-1}}^{S_{n}}\frac{\mathrm{d} x}{x^{2}}\\
+	& =1+\left(\frac{1}{x}\middle| _{a_{1}}^{S_{+\infty }}\right)
+\end{align*}
+
+
+因为 $\displaystyle S_{n}$ 单调递增且发散，于是 $\displaystyle S_{+\infty } =+\infty $，进而 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{S_{n}^{2}}$ 收敛。\qed 
+
+
+
+（3）
+
+如果 $\displaystyle a_{n}$ 上界存在，记为 $\displaystyle M$，则 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{1+a_{n}} \geqslant \sum _{n=1}^{+\infty }\frac{a_{n}}{1+M} =\frac{1}{1+M}\sum _{n=1}^{+\infty } a_{n}$ 发散。
+
+如果 $\displaystyle a_{n}$ 上界不存在，那么 $\displaystyle \varlimsup _{n\rightarrow +\infty } a_{n} =+\infty ,\varlimsup _{n\rightarrow +\infty }\frac{a_{n}}{1+a_{n}} =1$，于是 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{1+a_{n}}$ 发散。\qed 
+
+
+
+（4）
+\begin{align*}
+	\sum _{n=1}^{+\infty }\frac{a_{n}}{1+n^{2} a_{n}} & =\sum _{n=1}^{+\infty }\frac{1}{\frac{1}{a_{n}} +n^{2}}\\
+	& \leqslant \sum _{n=1}^{+\infty }\frac{1}{n^{2}}
+\end{align*}
+
+
+而 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{n^{2}}$ 收敛，于是原级数收敛。\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle a_{n}  >0,n\in \mathbb{N} ,\{a_{n} -a_{n+1}\}$ 为严格递减数列，若 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 收敛，证明：
+
+（1）$\displaystyle \{a_{n}\}$ 严格递减；（2）$\displaystyle \lim _{n\rightarrow \infty }\left(\frac{1}{a_{n+1}} -\frac{1}{a_{n}}\right) =+\infty $。
+\end{ques}
+
+
+
+（1）考虑反证，如果 $\displaystyle \exists N >0\ s.t.\ a_{N} \leqslant a_{N+1}$，那么 $\displaystyle \forall n >N\ a_{n} -a_{n+1} < a_{N} -a_{N+1} \leqslant 0$，进而 $\displaystyle a_{n}$ 在 $\displaystyle n >N$ 后单调上升，进而 $\displaystyle \lim _{n\rightarrow +\infty } a_{n} \neq 0$，和 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 收敛 矛盾。\qed 
+
+（2）
+
+
+\begin{align*}
+	\frac{a_{n} a_{n+1}}{a_{n} -a_{n+1}} & \leqslant \frac{a_{n}^{2}}{a_{n} -a_{n+1}}\\
+	& =\frac{\sum _{k=n}^{+\infty } a_{k}^{2} -a_{k+1}^{2}}{a_{n} -a_{n+1}}\\
+	& =\sum _{k=n}^{+\infty } a_{k} +a_{k+1}\\
+	& =\sum _{k=n}^{+\infty } a_{k} +\sum _{k=n+1}^{+\infty } a_{k}
+\end{align*}
+
+
+当 $\displaystyle n\rightarrow +\infty $，因为 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 收敛，于是 $\displaystyle \sum _{k=n}^{+\infty } a_{k}\rightarrow 0$，进而 $\displaystyle \lim _{n\rightarrow +\infty }\frac{a_{n} a_{n+1}}{a_{n} -a_{n+1}} =0$，于是
+\begin{equation*}
+	\lim _{n\rightarrow \infty }\left(\frac{1}{a_{n+1}} -\frac{1}{a_{n}}\right) =\lim _{n\rightarrow +\infty }\frac{1}{\frac{a_{n} a_{n+1}}{a_{n} -a_{n+1}}} =+\infty 
+\end{equation*}
+\qed 
+
+
+
+\begin{ques}
+	设 $\displaystyle a_{n}  >0,n\in \mathbb{N} ,\exists \alpha \in ( 0,1) \ s.t.\ \lim _{n\rightarrow \infty } n^{\alpha }\left(\frac{a_{n}}{a_{n+1}} -1\right) =\lambda ( \lambda  >0\ or\ =+\infty )$。证明：$\displaystyle \forall k\in \mathbb{N}^{*} =\{0,1,2,\cdots \} ,\sum _{n=1}^{+\infty } n^{k} a_{n}$ 收敛。
+\end{ques}
+
+
+
+$\displaystyle \lim _{n\rightarrow \infty } n^{\alpha }\left(\frac{a_{n}}{a_{n+1}} -1\right) =\lambda $，进而 $\displaystyle \lim _{n\rightarrow \infty } n\left(\frac{a_{n}}{a_{n+1}} -1\right) =\lim _{n\rightarrow \infty } n^{1-\alpha } \times \lim _{n\rightarrow \infty } n^{\alpha }\left(\frac{a_{n}}{a_{n+1}} -1\right) =+\infty  >1$。
+
+考虑
+\begin{align*}
+	\lim _{n\rightarrow \infty } n\left(\frac{n^{k} a_{n}}{( n+1)^{k} a_{n+1}} -1\right) & =\lim _{n\rightarrow \infty }\frac{n^{k+1}( a_{n} -a_{n+1})}{n^{k} a_{n+1}}\\
+	& =\lim _{n\rightarrow \infty } n\left(\frac{a_{n}}{a_{n+1}} -1\right)  >1
+\end{align*}
+
+于是 $\displaystyle \sum _{n=1}^{+\infty } n^{k} a_{n}$ 收敛。\qed 
+\ifx\allfiles\undefined
+\end{document}
+\fi
