@@ -1,0 +1,108 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.4.8 作业}
+
+\begin{ques}
+	设对于 $\displaystyle \forall n\in \mathbb{N}$ 有 $\displaystyle a_{n}  >0$ 并且级数 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{a_{n}}$ 收敛，证明 $\displaystyle \sum _{n=1}^{+\infty }\frac{n}{a_{1} +\cdots +a_{n}}$ 收敛。
+\end{ques}
+
+
+
+
+
+当 $\displaystyle a_{n}$ 单调递增时，有
+\begin{equation*}
+	\sum _{k=1}^{2n} a_{k} \geqslant \sum _{k=1}^{2n-1} a_{k} \geqslant \sum _{k=n}^{2n-1} a_{k} \geqslant na_{n}
+\end{equation*}
+
+
+进而
+\begin{equation*}
+	\frac{2n-1}{a_{1} +\cdots +a_{2n-1}} +\frac{2n}{a_{1} +\cdots +a_{2n}} \leqslant \frac{2n-1}{na_{n}} +\frac{2n}{na_{n}} \leqslant \frac{4}{a_{n}}
+\end{equation*}
+
+
+于是
+\begin{equation*}
+	\sum _{n=1}^{+\infty }\frac{n}{a_{1} +\cdots +a_{n}} =\sum _{n=1}^{+\infty }\frac{2n-1}{a_{1} +\cdots +a_{2n-1}} +\frac{2n}{a_{1} +\cdots +a_{2n}} \leqslant \sum _{n=1}^{+\infty }\frac{4}{a_{n}}
+\end{equation*}
+
+
+进而 $\displaystyle \sum _{n=1}^{+\infty }\frac{n}{a_{1} +\cdots +a_{n}}$ 收敛。
+
+当 $\displaystyle a_{n}$ 不单调递增时候，因为 $\displaystyle a_{n}  >0$，于是可以找到 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 的一个重排 $\displaystyle \sum _{n=1}^{+\infty } a_{f( n)}$ 使得 $\displaystyle \{a_{f( n)}\}_{n=1}^{+\infty }$ 单单调上升同时 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{a_{f( n)}}$ 收敛进而 $\displaystyle \sum _{n=1}^{+\infty }\frac{f( n)}{a_{1} +\cdots +a_{f( n)}}$ 收敛。又 $\displaystyle \frac{n}{a_{1} +\cdots +a_{n}}  >0$ 因此 $\displaystyle \sum _{n=1}^{+\infty }\frac{n}{a_{1} +\cdots +a_{n}} =\sum _{n=1}^{+\infty }\frac{f( n)}{a_{1} +\cdots +a_{f( n)}}$ 也是收敛的。\qed 
+
+
+
+
+
+\begin{ques}
+	证明：$\displaystyle \prod _{n=1}^{+\infty }\cos\frac{\pi }{2^{n+1}} =\frac{2}{\pi }$。
+\end{ques}
+
+
+\begin{align*}
+	\prod _{n=1}^{N}\cos\frac{\pi }{2^{n+1}} & =\frac{\sin\frac{\pi }{2^{N+1}}\prod _{n=1}^{N}\cos\frac{\pi }{2^{n+1}}}{\sin\frac{\pi }{2^{N+1}}}\\
+	& =\frac{\frac{1}{2^{N}}\sin\frac{\pi }{2}}{\sin\frac{\pi }{2^{N+1}}}\\
+	& =\frac{1}{2^{N}\sin\frac{\pi }{2^{N+1}}}\\
+	\prod _{n=1}^{+\infty }\cos\frac{\pi }{2^{n+1}} & =\lim _{N\rightarrow +\infty }\prod _{n=1}^{N}\cos\frac{\pi }{2^{n+1}}\\
+	& =\lim _{N\rightarrow +\infty }\frac{1}{2^{N}\sin\frac{\pi }{2^{N+1}}}\\
+	& =\lim _{N\rightarrow +\infty }\frac{1}{2^{N}\frac{\pi }{2^{N+1}}}\\
+	& =\frac{2}{\pi }
+\end{align*}
+\qed 
+
+
+
+\begin{ques}
+	讨论无穷乘积的敛散性 $\displaystyle \prod _{n=1}^{+\infty }\left( 1+\frac{1}{n}\right)^{\frac{1}{n}}$。
+\end{ques}
+
+
+
+该无穷级数敛散性和 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{n}\ln\left( 1+\frac{1}{n}\right)$ 相同。
+
+
+
+
+\begin{align*}
+	\sum _{n=1}^{+\infty }\frac{1}{n}\ln\left( 1+\frac{1}{n}\right) & =\sum _{n=1}^{+\infty }\frac{1}{n}\frac{1}{n} & ( 1)\\
+	& =\sum _{n=1}^{+\infty }\frac{1}{n^{2}} & 
+\end{align*}
+
+（1）：$\displaystyle \ln\left( 1+\frac{1}{n}\right)$ 定号且 $\displaystyle \sim \frac{1}{n}\left( n\rightarrow +\infty \right)$，运用极限形式的比较判别法。
+
+因此收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	试构造一个发散级数 $\displaystyle \sum _{n=1}^{+\infty } a_{n}$ 使得 $\displaystyle \prod _{n=1}^{+\infty }( 1+a_{n})$ 收敛。
+\end{ques}
+
+
+
+考虑，$\displaystyle a_{3k+1} =\frac{1}{\sqrt{k+1}} ,a_{3k+2} =-\frac{1}{\sqrt{k+1}} ,a_{3k+3} =\frac{1}{k+1} ,\forall k\in \mathbb{N}$。
+
+则 $\displaystyle \sum _{n=1}^{+\infty } a_{n} =\sum _{n=2}^{+\infty }\frac{1}{n}$ 发散，而 $\displaystyle \prod _{n=1}^{3N}( 1+a_{n}) =\prod _{k=2}^{N}\left( 1-\frac{1}{k^{2}}\right) ,\lim _{N\rightarrow +\infty }\sum _{n=1}^{3N}\ln( 1+a_{n}) =\lim _{N\rightarrow +\infty }\sum _{n=1}^{3N}\left( -\frac{1}{k^{2}}\right)$(定号，使用极限形式的比较判别法），因此$\displaystyle \lim _{N\rightarrow +\infty }\sum _{n=1}^{3N}\ln( 1+a_{n})$ 收敛，进而 $\displaystyle \lim _{N\rightarrow +\infty }\prod _{n=1}^{3N}( 1+a_{n}) =t$ 存在，$ $同时
+\begin{gather*}
+	\lim _{N\rightarrow +\infty }\prod _{n=1}^{3N+1}( 1+a_{n}) =t\times \lim _{N\rightarrow +\infty }\left(\frac{1}{\sqrt{N+1}} +1\right) =t\\
+	\lim _{N\rightarrow +\infty }\prod _{n=1}^{3N+2}( 1+a_{n}) =t\times \lim _{N\rightarrow +\infty }\left( -\frac{1}{N+1} +1\right) =t
+\end{gather*}
+
+
+因此 $\displaystyle \prod _{n=1}^{+\infty }( 1+a_{n})$ 收敛。\qed 
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
