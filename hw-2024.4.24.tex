@@ -1,0 +1,121 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.4.24 作业}
+
+\begin{ques}
+	讨论函数项级数在指定区间的一致收敛性：$\displaystyle \sum _{n=1}^{+\infty }\frac{\sin x\sin nx}{\sqrt{n+x^{2}}} ,x\in [ 0,+\infty )$。
+\end{ques}
+
+
+
+对于 $\displaystyle \frac{1}{\sqrt{n+x^{2}}}$，其关于 $\displaystyle n$ 是单调递减的，且 $\displaystyle \forall \varepsilon  >0,\exists N=\frac{1}{\varepsilon ^{2}}  >0,\ s.t.\frac{1}{\sqrt{n+x^{2}}} \leqslant \frac{1}{\sqrt{n}} =\varepsilon ,\forall n >N$，因此 $\displaystyle \frac{1}{\sqrt{n+x^{2}}} \rightrightarrows 0$。
+
+对于 $\displaystyle \sum _{n=1}^{N}\sin x\sin nx$，当 $\displaystyle x\neq 2k\pi ,k\in \mathbb{Z}$，有
+\begin{align*}
+	\sum _{n=1}^{N}\sin x\sin nx & =\sin x\sum _{n=1}^{N}\sin nx\\
+	& =\sin x\sum _{n=1}^{N}\sin nx\\
+	& =\frac{\sin x}{2\sin\frac{x}{2}}\left(\cos\frac{x}{2} -\cos\frac{2N+1}{2} x\right)
+\end{align*}
+因此，当 $\displaystyle x\neq 2k\pi ,k\in \mathbb{Z}$ 时，有 $\displaystyle \left| \sum _{n=1}^{N}\sin x\sin nx\right| \leqslant \left| \frac{\sin x}{\sin\frac{x}{2}}\right| $ 有界，当 $\displaystyle x=2k\pi $ 时，$\displaystyle \left| \sum _{n=1}^{N}\sin x\sin nx\right| =0$，有界。
+
+对于 $\displaystyle \left| \frac{\sin x}{\sin\frac{x}{2}}\right| =\left| 2\cos\frac{x}{2}\right| \leqslant 2$，因此 $\displaystyle \sum _{n=1}^{N}\sin x\sin nx$ 一致有界。
+
+由狄利克雷判别法，$\displaystyle \sum _{n=1}^{+\infty }\frac{\sin x\sin nx}{\sqrt{n+x^{2}}}$ 一致收敛。\qed 
+
+
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle \{f_{n}( x)\}$ 是 $\displaystyle [ 0,1]$ 上的连续函数列并且满足 $\displaystyle f_{n}( x)\rightarrow f( x)\left( n\rightarrow +\infty \right)$，序列 $\displaystyle \{x_{n}\} \subset [ 0,1]$ 满足 $\displaystyle x_{n}\rightarrow x_{0}\left( n\rightarrow \infty \right)$，试举例说明：当 $\displaystyle n\rightarrow \infty $ 时 $\displaystyle f_{n}( x_{n})( n=1,2,\cdots )$ 未必收敛到 $\displaystyle f( x_{0})$。现在设 $\displaystyle f_{n}( x) \rightrightarrows f( x) ,x\in [ 0,1]$，证明必有 $\displaystyle f_{n}( x_{n})\rightarrow f( x_{0}) ,\left( n\rightarrow +\infty \right)$。
+\end{ques}
+
+
+
+
+
+令 $\displaystyle f_{n}( x) =\frac{1}{nx+1}$，则 $\displaystyle f( x) =\begin{cases}
+	1 & x=0\\
+	0 & x\in ( 0,1]
+\end{cases}$，令 $\displaystyle x_{n} =\frac{1}{n}\rightarrow 0$，而 $\displaystyle f( 0) =1,f_{n}( x) =\frac{1}{2} \neq 1$。
+
+
+
+结论证明：
+
+因为 $\displaystyle f_{n}( x) \rightrightarrows f( x)$，有
+\begin{equation*}
+	\forall \varepsilon  >0,\exists N_{1}  >0\ s.t.|f_{n}( x) \ -f( x) |< \frac{\varepsilon }{2} ,\forall x\in [ 0,1] ,n >N_{1}
+\end{equation*}
+
+
+而 $\displaystyle f_{n}( x)$ 是连续函数列，于是 $\displaystyle f( x)$ 也是连续函数，又 $\displaystyle x_{n}\rightarrow x_{0}$，有
+\begin{equation*}
+	\forall \varepsilon  >0,\exists N_{2}  >0\ s.t.\ |f( x_{n}) -f( x_{0}) |< \frac{\varepsilon }{2} ,\forall n >N_{2}
+\end{equation*}
+
+
+进而
+
+
+
+\begin{gather*}
+	\forall \varepsilon  >0,\exists N=\max\{N_{1} ,N_{2}\} \ s.t.\ |f_{n}( x_{n}) -f( x_{0}) |\\
+	\leqslant |f_{n}( x_{n}) -f( x_{n}) |+|f( x_{n}) \ -f( x_{0}) |=\varepsilon 
+\end{gather*}\qed 
+
+
+
+
+
+\begin{ques}
+	讨论函数项级数在指定区间的一致收敛性：$\displaystyle \sum _{n=1}^{\infty }( -1)^{n}\frac{\sin nx}{n}$，
+
+（A) $\displaystyle x\in \left[ -\frac{\pi }{2} ,\frac{\pi }{2}\right]$；（B) $\displaystyle x\in \left[\frac{\pi }{2} ,\frac{3\pi }{2}\right]$。
+
+\end{ques}
+
+
+对于 $\displaystyle \frac{1}{n}$，其关于 $\displaystyle n$ 单调递减且 $\displaystyle \frac{1}{n} \rightrightarrows 0$。
+
+
+\vspace{20\baselineskip}
+
+
+
+
+
+
+\begin{ques}
+	证明 $\displaystyle \sum _{n=1}^{\infty }\frac{( -1)^{n}}{n+x^{2}}\arctan nx$ 在 $\displaystyle ( -\infty ,+\infty )$ 上一致收敛。
+\end{ques}
+
+
+
+因为 $\displaystyle \arctan nx$ 关于 $\displaystyle n$ 是单调的且 $\displaystyle |\arctan nx|\leqslant \frac{\pi }{2}$，利用 Abel 判别法（当 $\displaystyle x=0$ 时 $\displaystyle \arctan nx\equiv 0$，整个式子在 $\displaystyle 0$ 的邻域内一致收敛，不影响结果），原式和 $\displaystyle S( x) =\sum _{n=1}^{\infty }\frac{( -1)^{n}}{n+x^{2}}$ 一致收敛性相同。
+
+令 $\displaystyle S_{t}( x) =\sum _{n=1}^{t}\frac{( -1)^{n}}{n+x^{2}}$，则
+
+
+\begin{align*}
+	| S_{t}( x) -S( x)|  & =\left| \sum _{n=t+1}^{+\infty }\frac{( -1)^{n}}{n+x^{2}}\right| \\
+	& \leqslant \left| \frac{( -1)^{t+1}}{t+1+x^{2}}\right| \\
+	& < \frac{1}{t}
+\end{align*}
+
+
+于是 $\displaystyle \forall \varepsilon  >0,\exists N=\frac{1}{\varepsilon }  >0\ s.t.\ |S_{n}( x) -S( x) |< \varepsilon ,\forall n >N$，于是 $\displaystyle S_{t}( x)$ 一致收敛，进而 $\displaystyle \sum _{n=1}^{\infty }\frac{( -1)^{n}}{n+x^{2}}\arctan nx$ 一致收敛。\qed 
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
