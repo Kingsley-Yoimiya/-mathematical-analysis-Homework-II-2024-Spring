@@ -1,0 +1,136 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.4.22 作业}
+\begin{ques}
+	求函数列 $\displaystyle \{f_{n}( x)\}$ 在给定的区间上的极限函数，并讨论是否一致收敛：$\displaystyle f_{n}( x) =\sin\frac{x}{n^{n}} ,$（1）$\displaystyle x\in [ a,b]$，（2）$\displaystyle x\in ( -\infty ,+\infty )$。
+\end{ques}
+
+
+
+当 $\displaystyle n\rightarrow +\infty $ 时，有 $\displaystyle \forall x\in ( -\infty ,+\infty ) ,\frac{x}{n^{n}}\rightarrow 0$，进而 $\displaystyle f_{n}( x)\rightarrow 0$，于是极限函数 $\displaystyle f( x) \equiv 0$。
+
+（1）当 $\displaystyle x\in [ a,b]$ 时候，$\displaystyle \left| \frac{x}{n^{n}}\right| \leqslant \max\left\{\left| \frac{a}{n^{n}}\right| ,\left| \frac{b}{n^{n}}\right| \right\}$，进而 $\displaystyle \forall \varepsilon  >0,\exists N >0\ s.t.\left| \frac{x}{n^{n}}\right| \leqslant \max\left\{\left| \frac{a}{n^{n}}\right| ,\left| \frac{b}{n^{n}}\right| \right\} < \varepsilon ,\forall n >N,x\in [ a,b] \ $，进而 $\displaystyle f_{n}( x) \rightrightarrows 0,x\in [ a,b]$。\qed 
+
+（2）当 $\displaystyle x\in ( -\infty ,+\infty )$ 时候，$\displaystyle \forall n,\exists x=n^{n} \ s.t.\ f_{n}( x) =\sin 1$ 为常数，因此 $\displaystyle f_{n}( x) ,x\in ( -\infty ,+\infty )$ 不一致收敛。\qed 
+
+
+
+\begin{ques}
+	求函数列 $\displaystyle \{f_{n}( x)\}$ 在给定的区间上的极限函数，并讨论是否一致收敛：$\displaystyle f_{n}( x) =(\sin x)^{n^{\alpha }} ,( \alpha  >0) ,x\in [ 0,\pi ]$。
+\end{ques}
+
+
+
+当 $\displaystyle x=\frac{\pi }{2}$ 时 $\displaystyle f_{n}( x) \equiv 1$，当 $\displaystyle x\in \left[ 0,\frac{\pi }{2}\right) \cup \left(\frac{\pi }{2} ,\pi \right]$ 时，$\displaystyle 0\leqslant \sin x< 1$ 当 $\displaystyle n\rightarrow +\infty $ 时，$\displaystyle f_{n}( x)\rightarrow 0$，因此极限函数：
+\begin{equation*}
+	f( x) =\begin{cases}
+		1 & x=\frac{\pi }{2}\\
+		0 & x\in \left[ 0,\frac{\pi }{2}\right) \cup \left(\frac{\pi }{2} ,\pi \right]
+	\end{cases}
+\end{equation*}
+
+
+考虑一致收敛性：
+
+如果 $\displaystyle f_{n}( x) \rightrightarrows f( x)$，则 $\displaystyle \forall \varepsilon  >0,\exists N >0\ s.t.\ |f_{n}( x) -f( x) |< \varepsilon ,\forall n >N$，
+
+对于 $\displaystyle x\in \left[ 0,\frac{\pi }{2}\right) \cup \left(\frac{\pi }{2} ,\pi \right] ,$此时 $\displaystyle |f_{n}( x) -0|< \varepsilon $，当 $\displaystyle x\rightarrow \frac{\pi }{2}$ 时，有 $\displaystyle |f_{n}\left(\frac{\pi }{2}\right) -0|\leqslant \varepsilon $，当 $\displaystyle \varepsilon < \frac{1}{4}$ 时，与 $\displaystyle |f_{n}\left(\frac{\pi }{2}\right) -1|< \varepsilon $ 矛盾。进而 $\displaystyle f_{n}( x)$ 不一致收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f_{1}( x) \in R[ a,b]$，定义 $\displaystyle f_{n+1}( x) =\int _{a}^{x} f_{n}( t)\mathrm{d} t,n=1,2,3,\cdots $。证明：$\displaystyle f_{n}( x) \rightrightarrows 0,x\in [ a,b]$。
+\end{ques}
+
+
+
+
+
+因为 $\displaystyle f_{1}( x) \in R[ a,b]$，有 $\displaystyle \exists M >0,\ s.t.\ |f_{1}( x) |< M$，考虑归纳证明 $\displaystyle |f_{n}( x) |< \frac{M( x-a)^{n-1}}{( n-1) !}$：
+
+对于 $\displaystyle n=1$ 成立。
+
+对于 $\displaystyle n >1$，$\displaystyle |f_{n}( x) |=\left| \int _{a}^{x} f_{n-1}( t)\mathrm{d} t\right| < \left| \int _{a}^{x}\frac{M( t-a)^{n-2}}{( n-2) !}\mathrm{d} t\right| =\frac{M( x-a)^{n-1}}{( n-1) !}$。
+
+因此有 $\displaystyle |f_{n}( x) |< \frac{M( x-a)^{n-1}}{( n-1) !}$，当 $\displaystyle n\rightarrow +\infty $ 时，有 $\displaystyle \frac{M( x-a)^{n-1}}{( n-1) !}\rightarrow 0$，由最值判别法，$\displaystyle f_{n}( x) \rightrightarrows 0,x\in [ a,b]$。\qed 
+
+
+
+
+
+
+
+
+
+\begin{ques}
+	讨论函数列在指定区间的一致收敛性：$\displaystyle f_{n}( x) =n^{\alpha } x( 1-x)^{n} ,\alpha \in \mathbb{R} ,x\in [ 0,1]$。
+\end{ques}
+
+
+
+当 $\displaystyle x=0$ 时，$\displaystyle f_{n}( x) \equiv 0$，当 $\displaystyle x\neq 0$ 时，有 $\displaystyle \lim _{n\rightarrow +\infty } f_{n}( x) =\lim _{n\rightarrow +\infty } n^{\alpha } x( 1-x)^{n} =0$，于是 $\displaystyle f_{n}( x)$ 的极限函数为 $\displaystyle f( x) \equiv 0,x\in [ 0,1]$。
+
+接着考虑 $\displaystyle \sup _{x\in [ 0,1]}\{|f_{n}( x) -0|\}$，考虑
+\begin{align*}
+	\mathrm{\frac{d}{dx}}\left( n^{\alpha } x( 1-x)^{n}\right) & =n^{\alpha }\mathrm{\frac{d}{dx}}\left( x( 1-x)^{n}\right)\\
+	& =n^{\alpha }\left(( 1-x)^{n}\mathrm{d} x-nx( 1-x)^{n-1}\mathrm{d} x\right)\\
+	& =n^{\alpha }( 1-x)^{n-1}( 1-x-nx)\mathrm{d} x
+\end{align*}
+
+
+于是当 $\displaystyle x\leqslant \frac{1}{n+1}$ 时 $\displaystyle n^{\alpha } x( 1-x)^{n}$ 单调递增，当 $\displaystyle x\geqslant \frac{1}{n+1}$ 时单调递减，有
+\begin{align*}
+	\sup _{x\in [ 0,1]}\{|f_{n}( x) -0|\} & =f_{n}\left(\frac{1}{n+1}\right)\\
+	& =n^{\alpha }\frac{1}{n+1}\frac{n^{n}}{( n+1)^{n}}\\
+	& =\frac{n^{n+\alpha }}{( n+1)^{n+1}}
+\end{align*}
+
+
+当 $\displaystyle \alpha  >1$ 时，$\displaystyle \sup _{x\in [ 0,1]}\{|f_{n}( x) -0|\}\rightarrow +\infty \left( n\rightarrow +\infty \right)$，不一致收敛。
+
+当 $\displaystyle \alpha =1$ 时，$\displaystyle \sup _{x\in [ 0,1]}\{|f_{n}( x) -0|\} =\left( 1-\frac{1}{n+1}\right)^{n+1}\rightarrow e^{-1}\left( n\rightarrow +\infty \right)$ 不一致收敛。
+
+当 $\displaystyle \alpha < 1$ 时，$\displaystyle \sup _{x\in [ 0,1]}\{|f_{n}( x) -0|\}\rightarrow 0\left( n\rightarrow +\infty \right)$，一致收敛。
+
+因此当 $\displaystyle \alpha \geqslant 1$ 时不一致收敛，当 $\displaystyle \alpha < 1$ 时一致收敛。\qed 
+
+
+
+
+
+
+
+\begin{ques}
+	设连续函数列 $\displaystyle \{f_{n}( x)\}$ 在区间 $\displaystyle [ 0,1]$ 上一致收敛，证明 $\displaystyle \left\{e^{f_{n}( x)}\right\}$ 在 $\displaystyle [ 0,1]$ 上也一致收敛。
+\end{ques}
+
+
+
+因为 $\displaystyle f_{n}( x)$ 在 $\displaystyle [ 0,1]$ 上一致收敛，因此对于收敛函数 $\displaystyle f( x)$ 有 $\displaystyle \exists M >0\ s.t.\ |f( x) |< M\ \forall x\in [ 0,1]$。
+
+同时 $\displaystyle \forall \varepsilon  >0,\exists N >0,s.t.\ |f_{n}( x) -f( x) |< \frac{\varepsilon }{2M} ,\forall n >N$。
+
+对于 $\displaystyle e^{f_{n}( x)}$ 其收敛函数就是 $\displaystyle e^{f( x)}$，而$\displaystyle \ |e^{f_{n}( x)} -e^{f( x)} |=e^{f( x)}\left( e^{f_{n}( x) -f( x)} -1\right)$ 。
+
+有 $\displaystyle \forall \varepsilon  >0$，
+\begin{gather*}
+	\exists N_{1}  >0,\ s.t.\ |f_{n}( x) -f( x) |< \frac{\varepsilon }{2M} ,\forall n >N_{1} ;\\
+	\exists N_{2}  >0,\ s.t.\ |\left( e^{f_{n}( x) -f( x)} -1\right) -( f_{n}( x) -f( x)) |< \frac{\varepsilon }{2M} ,\forall n > N_{2}\\
+	\exists N=\max\{N_{1} ,N_{2}\} ,\ s.t.\ \ |e^{f_{n}( x)} -e^{f( x)} |=e^{f( x)}\left( e^{f_{n}( x) -f( x)} -1\right) < M\frac{\varepsilon }{M} =\varepsilon ,\forall n >N
+\end{gather*}
+
+因此 $\displaystyle \left\{e^{f_{n}( x)}\right\}$ 在 $\displaystyle [ 0,1]$ 上一致收敛。\qed 
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
