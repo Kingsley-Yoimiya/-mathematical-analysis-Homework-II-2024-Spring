@@ -1,0 +1,122 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.6 作业}
+\begin{ques}
+	设数项级数 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x_{0}}}( x_{0} \in \mathbb{R})$ 收敛，证明 $\displaystyle \lim _{x\rightarrow x_{0} +0}\sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x}} =\sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x_{0}}}$。
+\end{ques}
+
+
+
+因为 $\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x_{0}}}$ 收敛，因为该函数和 $\displaystyle x$ 无关，因此是一致收敛的，
+
+同时任取 $\displaystyle \delta  >0$，有 $\displaystyle \frac{1}{n^{x-x_{0}}} ,\forall x\in ( x_{0} ,\delta )$ 关于 $\displaystyle n$ 单调，（需证明一致有界）并且 $\displaystyle \forall x\in ( x_{0} ,\delta ) ,\left| \frac{1}{n^{x-x_{0}}}\right| \leqslant 1$，因此是一致有界的。
+
+根据 Abel 判别法，$\displaystyle \sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x}}$ 在 $\displaystyle x\in ( x_{0} ,x_{0} +\delta )$ 上是一致收敛的，因此在 $\displaystyle x_{0} +$ 处局部一致收敛，而 $\displaystyle \frac{a_{n}}{n^{x}}$ 是连续的，因此，$\displaystyle \lim _{x\rightarrow x_{0} +0}\sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x}} =\sum _{n=1}^{+\infty }\lim _{x\rightarrow x_{0} +0}\frac{a_{n}}{n^{x}} =\sum _{n=1}^{+\infty }\frac{a_{n}}{n^{x_{0}}}$。\qed 
+
+
+
+
+
+\begin{ques}
+	证明 $\displaystyle f( x) =\sum _{n=1}^{+\infty }\frac{( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)}{\sqrt{n}} \in C( -\infty ,+\infty )$。
+\end{ques}
+
+
+
+
+
+对于 $\displaystyle x\in [ a,b] \subset ( -\infty ,+\infty )$，有
+
+$\displaystyle \frac{1}{\sqrt{n}}$ 关于 $\displaystyle n$ 单调且 $\displaystyle \rightrightarrows 0$。
+
+对于 $\displaystyle \sum _{n=1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)$，记 $\displaystyle t=\max\{|a|,|b|\}$，有 
+
+
+\begin{align*}
+	\left| \sum _{n=1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)\right|  & =\left| \sum _{n=1}^{10t}( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right) +\sum _{n=10t+1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)\right|  & \\
+	& \leqslant \left| 10t+\sum _{n=10t+1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)\right|  & ( 1)\\
+	& \leqslant |10t+1| & 
+\end{align*}
+（1）：因为 $\displaystyle \sin\left(\frac{\pi }{4} +\frac{x}{n}\right)$ 在 $\displaystyle n\geqslant 10t$ 时关于 $\displaystyle n$ 单调递减，因此
+\begin{equation*}
+	\left| \sum _{n=10t+1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)\right| \leqslant \left| \sin\left(\frac{\pi }{4} +\frac{x}{10t}\right)\right| \leqslant 1
+\end{equation*}
+
+
+因此 $\displaystyle \sum _{n=1}^{+\infty }( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)$ 在 $\displaystyle [ a,b]$ 上是一致有界的。
+
+由狄利克雷法则，因此 $\displaystyle f( x) =\sum _{n=1}^{+\infty }\frac{( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)}{\sqrt{n}}$ 在 $\displaystyle [ a,b] \subset ( -\infty ,+\infty )$ 上是一致收敛的。
+
+因此 $\displaystyle f( x) =\sum _{n=1}^{+\infty }\frac{( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)}{\sqrt{n}}$ 在 $\displaystyle ( -\infty ,+\infty )$ 上是内闭一致收敛的。
+
+而$\displaystyle \frac{( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)}{\sqrt{n}}$ 关于 $\displaystyle x$ 是连续函数，因此 $\displaystyle f( x) =\sum _{n=1}^{+\infty }\frac{( -1)^{n}\sin\left(\frac{\pi }{4} +\frac{x}{n}\right)}{\sqrt{n}}$ 连续。\qed 
+
+
+
+
+
+\begin{ques}
+	求极限 $\displaystyle \lim _{x\rightarrow 3}\sum _{n=1}^{+\infty }\frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n}$。
+\end{ques}
+
+
+
+取 $\displaystyle \delta =0.2,q=\max_{x\in ( 3-\delta ,3+\delta )}\left| \frac{x-4}{2( x-2)}\right| \leqslant \frac{3}{4}$，则 $\displaystyle \sum _{n=1}^{+\infty }\left| \frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n}\right| \leqslant \sum _{n=1}^{+\infty } q^{n}$。
+
+而 $\displaystyle \sum _{n=1}^{+\infty } q^{n}$ 是收敛的，由 M 判别法，$\displaystyle \sum _{n=1}^{+\infty }\frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n}$ 在 $\displaystyle ( 3-\delta ,3+\delta )$ 上是绝对一致收敛的。
+
+因为 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n}$是一致收敛的，同时对于每个 $\displaystyle n$，$\displaystyle \frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n}$ 是连续的，因此有
+\begin{align*}
+	\lim _{x\rightarrow 3}\sum _{n=1}^{+\infty }\frac{1}{2^{n}}\left(\frac{x-4}{x-2}\right)^{n} & =\sum _{n=1}^{+\infty }\frac{1}{2^{n}}\lim _{x\rightarrow 3}\left(\frac{x-4}{x-2}\right)^{n}\\
+	& =\sum _{n=1}^{+\infty }\frac{1}{2^{n}}( -1)^{n}\\
+	& =-\sum _{n=1}^{+\infty }\frac{1}{4^{n}}\\
+	& =-\frac{1}{3}
+\end{align*}
+\qed 
+
+
+
+
+
+\begin{ques}
+	求极限 $\displaystyle \lim _{x\rightarrow +\infty }\sum _{n=1}^{+\infty }\frac{1}{n}\left(\frac{1-x}{x}\right)^{n}$。
+\end{ques}
+
+
+
+对于 $\displaystyle x\in [ a,b] ,2\leqslant a< b< +\infty $，令 $\displaystyle q=\max_{x\in [ a,b]}\left| \left(\frac{1}{x} -1\right)\right| =\left| \frac{1}{b} -1\right| < 1$，则
+
+
+\begin{align*}
+	\left| \frac{1}{n}\left(\frac{1-x}{x}\right)^{n}\right|  & \leqslant q^{n}\\
+	\sum _{n=1}^{+\infty }\left| \frac{1}{n}\left(\frac{1-x}{x}\right)^{n}\right|  & \leqslant \sum _{n=1}^{+\infty } q^{n}
+\end{align*}
+
+
+因为 $\displaystyle \sum _{n=1}^{+\infty } q^{n}$ 是收敛的，于是 由 M 判别法 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{n}\left(\frac{1-x}{x}\right)^{n}$ 在 $\displaystyle [ a,b]$ 绝对一致收敛，进而 $\displaystyle \sum _{n=1}^{+\infty }\frac{1}{n}\left(\frac{1-x}{x}\right)^{n}$ 在 $\displaystyle [ 2,+\infty )$ 上内闭一致收敛。
+
+而 $\displaystyle \left(\frac{1-x}{x}\right)^{n}$ 是连续的，因此有：
+
+
+\begin{align*}
+	\lim _{x\rightarrow +\infty }\sum _{n=1}^{+\infty }\frac{1}{n}\left(\frac{1-x}{x}\right)^{n} & =\sum _{n=1}^{+\infty }\lim _{x\rightarrow +\infty }\frac{1}{n}\left(\frac{1-x}{x}\right)^{n}\\
+	& =\sum _{n=1}^{+\infty }\frac{1}{n}( -1)^{n}\\
+	& =-\sum _{n=1}^{+\infty }\frac{1}{n} +\sum _{n=1}^{+\infty }\frac{1}{2n}\\
+	& =-\ln 2
+\end{align*}
+\qed 
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
