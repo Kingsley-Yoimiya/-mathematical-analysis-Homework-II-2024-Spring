@@ -1,0 +1,236 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.8 作业}
+\begin{ques}
+	证明 $\displaystyle f( x) =\sum _{n=1}^{+\infty } n^{\alpha } e^{-nx} \in C^{\infty }( 0,+\infty )$，这里 $\displaystyle \alpha $ 是一实数。
+\end{ques}
+
+
+
+
+\begin{align*}
+	f^{( 0)}( x) & =\sum _{n=1}^{+\infty } n^{\alpha } e^{-nx}\\
+	f^{( 1)}( x) & =\sum _{n=1}^{+\infty }( -1) n^{\alpha +1} e^{-nx}\\
+	& \vdots \\
+	f^{( t)}( x) & =\sum _{n=1}^{+\infty }( -1)^{t} n^{\alpha +t} e^{-nx}
+\end{align*}
+
+
+因为 $\displaystyle ( -1)^{t} n^{\alpha +t} e^{-nx}$ 是连续函数，只需证明 $\displaystyle \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-nx}$ 内闭一致收敛即可。
+
+对于 $\displaystyle x\in [ a,b] \subset ( 0,+\infty ) ,\forall a,b$，有 $\displaystyle \left( n^{\alpha +t} e^{-nx}\right) '=-n^{\alpha +t+1} e^{-nx} < 0$ 于是 $\displaystyle n^{\alpha +t} e^{-nx}$ 在 $\displaystyle x=a$ 取得最大值，进而 $\displaystyle |n^{\alpha +t} e^{-nx} |\leqslant n^{\alpha +t} e^{-na}$，对于 $\displaystyle \left| \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-nx}\right| \leqslant \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-na}$，而
+
+
+\begin{equation*}
+	\lim _{n\rightarrow +\infty }\frac{n^{\alpha +t} e^{-na}}{( n+1)^{\alpha +t} e^{-( n+1) a}} =\lim _{n\rightarrow +\infty }\frac{n^{\alpha +t} e^{a}}{( n+1)^{\alpha +t}} =e^{a}  >1
+\end{equation*}
+
+
+因此，根据 Rabbe 判别法，$\displaystyle \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-na}$ 收敛，进而$\displaystyle \left| \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-nx}\right| $在 $\displaystyle x\in [ a,b]$ 上一致收敛。
+
+于是 $\displaystyle \sum _{n=1}^{+\infty } n^{\alpha +t} e^{-nx}$ 内闭一致收敛，又因为 $\displaystyle ( -1)^{t} n^{\alpha +t} e^{-nx}$ 是连续函数，$\displaystyle f^{( t)}( x) \in C( 0,+\infty ) ,\forall t$，于是 $\displaystyle f( x) =\sum _{n=1}^{+\infty } n^{\alpha } e^{-nx} \in C^{\infty }( 0,+\infty )$。\qed 
+
+
+
+
+
+
+
+\begin{ques}
+	设函数 $\displaystyle f_{n}( x)( n=1,2,3,\cdots )$ 在任一有限区间上可积，并且在 $\displaystyle ( -\infty ,+\infty )$ 上内闭一致收敛到 $\displaystyle f( x)$。再设存在函数 $\displaystyle g( x)$ 满足 $\displaystyle |f_{n}( x) |\leqslant g( x)( n=1,2,3,\cdots ) ,\forall x\in ( -\infty ,+\infty )$，且 $\displaystyle \int _{-\infty }^{+\infty } g( x)\mathrm{d} x< +\infty $。证明广义积分 $\displaystyle \int _{-\infty }^{+\infty } f( x)\mathrm{d} x$ 收敛，并且 $\displaystyle \lim _{n\rightarrow \infty }\int _{-\infty }^{+\infty } f_{n}( x)\mathrm{d} x=\int _{-\infty }^{+\infty } f( x)\mathrm{d} x$。
+\end{ques}
+
+
+
+
+
+因为 $\displaystyle |f_{n}( x) |\leqslant g( x) ,\forall n$，于是有
+
+
+\begin{gather*}
+|f( x) |=\lim _{n\rightarrow +\infty } |f_{n}( x) |\leqslant g( x)\\
+\int _{-\infty }^{+\infty } |f( x) |\mathrm{d} x\leqslant \int _{-\infty }^{+\infty } g( x) < +\infty 
+\end{gather*}
+
+
+于是 $\displaystyle \int _{-\infty }^{+\infty } f( x)\mathrm{d} x$ 绝对收敛，进而 $\displaystyle \int _{-\infty }^{+\infty } f( x)\mathrm{d} x$ 收敛。
+
+接着考虑 $\displaystyle \forall \varepsilon  >0,\exists X >0\ s.t.\forall n$
+
+
+\begin{align*}
+\left| \int _{-\infty }^{-X} f_{n}( x)\mathrm{d} x\right|  & \leqslant \left| \int _{-\infty }^{-X} g( x)\mathrm{d} x\right| < \varepsilon \\
+\left| \int _{X}^{+\infty } f_{n}( x)\mathrm{d} x\right|  & \leqslant \left| \int _{X}^{+\infty } g( x)\mathrm{d} x\right| < \varepsilon \\
+\left| \int _{-\infty }^{-X} f( x)\mathrm{d} x\right|  & \leqslant \left| \int _{-\infty }^{-X} g( x)\mathrm{d} x\right| < \varepsilon \\
+\left| \int _{X}^{+\infty } f( x)\mathrm{d} x\right|  & \leqslant \left| \int _{X}^{+\infty } g( x)\mathrm{d} x\right| < \varepsilon 
+\end{align*}
+
+
+而 $\displaystyle f_{n}( x)$ 在 $\displaystyle ( -\infty ,+\infty )$ 内闭一致收敛到 $\displaystyle f( x)$，在 $\displaystyle [ -X,X]$ 一致收敛到 $\displaystyle f( x)$。
+
+于是 $\displaystyle \exists N >0\ s.t.\ |f_{n}( x) -f( x) |< \frac{\varepsilon }{2X} ,\forall n >N$，进而 $\displaystyle \forall n >N$
+\begin{gather*}
+\left| \int _{-\infty }^{+\infty } f_{n}( x)\mathrm{d} x-\int _{-\infty }^{+\infty } f( x)\mathrm{d} x\right| \\
+\leqslant \left| \int _{-\infty }^{-X} f_{n}( x)\mathrm{d} x-\int _{-\infty }^{-X} f( x)\mathrm{d} x\right| +\left| \int _{-X}^{X} f_{n}( x)\mathrm{d} x-\int _{-X}^{X} f( x)\mathrm{d} x\right| +\left| \int _{X}^{+\infty } f_{n}( x)\mathrm{d} x-\int _{X}^{+\infty } f( x)\mathrm{d} x\right| \\
+< 3\varepsilon 
+\end{gather*}
+
+
+于是 $\displaystyle \forall \varepsilon  >0,\exists N >0\ s.t.\left| \int _{-\infty }^{+\infty } f_{n}( x)\mathrm{d} x-\int _{-\infty }^{+\infty } f( x)\mathrm{d} x\right| < \varepsilon ,\forall n >N$，于是有 $\displaystyle \lim _{n\rightarrow \infty }\int _{-\infty }^{+\infty } f_{n}( x)\mathrm{d} x-\int _{-\infty }^{+\infty } f( x)\mathrm{d} x\ \ $。\qed 
+
+
+
+
+
+
+
+
+
+\begin{ques}
+	（1）设 $\displaystyle f( x)$ 在区间 $\displaystyle [ a,b+1]$ 可导，且 $\displaystyle f'( x)$ 在 $\displaystyle [ a,b+1]$ 一致连续。证明 $\displaystyle F_{n}( x) =n\left[ f\left( x+\frac{1}{n}\right) -f( x)\right]( n=1,2,3,\cdots )$ 在 $\displaystyle [ a,b]$ 上一致收敛。
+
+（2） 证明 $\displaystyle f_{n}( x) =n\left[\sqrt{x+\frac{1}{n}} -\sqrt{x}\right]( n=1,2,3,\cdots )$ 在 $\displaystyle ( 0,+\infty )$ 内闭一致收敛，但在 $\displaystyle ( 0,+\infty )$ 不一致收敛。
+\end{ques}
+
+
+
+
+
+（1）
+
+由拉格朗日微分中值定理，$\displaystyle \exists \xi \in \left( x,x+\frac{1}{n}\right) \ s.t.\ f\left( x+\frac{1}{n}\right) =f( x) +f'( \xi )\frac{1}{n}$，那么 $\displaystyle F_{n}( x) =f'( \xi ) ,\xi \in \left( x,x+\frac{1}{n}\right)$。
+
+因为 $\displaystyle f'( x)$ 一致连续，故 $\displaystyle \forall \varepsilon  >0,\exists \delta  >0\ s.t.\ |f( x') -f( x'') |< \varepsilon ,\forall |x'-x''|< \delta $。
+
+因此 $\displaystyle \forall \varepsilon  >0,\ \exists \delta  >0,N=\frac{1}{\delta } \ s.t.\ |f( x') -f( x'') |< \varepsilon ,\forall |x'-x''|< \delta ,|F_{n}( x) -F_{m}( x) |< \varepsilon ,\forall n,m >N$。
+
+由柯西准则 $\displaystyle F_{n}( x)$ 在 $\displaystyle [ a,b]$ 上一致连续。
+
+
+
+（2）
+
+$\displaystyle \forall [ a,b] \subset ( 0,+\infty )$，有 $\displaystyle f( x) =\sqrt{x}$ 在 $\displaystyle [ a,b+1]$ 上可导，$\displaystyle f'( x) =\frac{1}{2\sqrt{x}}$ 在 $\displaystyle [ a,b+1]$ 上一致连续，进而 $\displaystyle f_{n}( x)$ 在 $\displaystyle [ a,b]$ 上收敛，在 $\displaystyle ( 0,+\infty )$ 上内闭一致收敛。
+
+接着考虑 $\displaystyle f_{n}( x)\rightarrow \frac{1}{2\sqrt{x}}$，而令 $\displaystyle x_{n} =\frac{1}{n}$，则 $\displaystyle f_{n}( x_{n}) =\left(\sqrt{2} -1\right)\sqrt{n} ,|f_{n}( x_{n}) -f( x_{n}) |=\left(\sqrt{2} -\frac{3}{2}\right)\sqrt{n}$ 不趋向于 $\displaystyle 0$，因此 $\displaystyle f_{n}( x)$ 在 $\displaystyle ( 0,+\infty )$ 上不一致收敛。\qed 
+
+
+
+
+
+\begin{ques}
+	设在 $\displaystyle [ -1,1]$ 定义的非负函数列 $\displaystyle f_{n}( x)( n=1,2,3,\cdots )$ 满足：
+
+（1）对 $\displaystyle \forall n,\int _{-1}^{1} f_{n}( x)\mathrm{d} x=1$；
+
+（2）对任意的 $\displaystyle \delta  >0,f_{n}( x) \rightrightarrows 0,x\in [ -1,-\delta ] \cup [ \delta ,1]$。
+
+再设 $\displaystyle g( x) \in R[ -1,1]$ 且在 $\displaystyle x=0$ 连续，证明 $\displaystyle \lim _{n\rightarrow \infty }\int _{-1}^{1} f_{n}( x) g( x)\mathrm{d} x=g( 0)$。
+
+\end{ques}
+
+
+因为 $\displaystyle g( x) \in R[ -1,1]$，故 $\displaystyle \exists M >0\ s.t.\ |g( x) |\leqslant M,\forall x\in [ -1,1]$。
+
+$\displaystyle \forall \delta  >0,f_{n}( x) \rightrightarrows 0,x\in [ -1,-\delta ] \cup [ \delta ,1]$，于是 $\displaystyle \forall \delta ,\varepsilon  >0,\exists N >0\ s.t.\ |f_{n}( x) |< \varepsilon ,\forall x\in [ -1,-\delta ] \cup [ \delta ,1] ,n >N$。
+
+同时，因为 $\displaystyle g( x)$ 在 $\displaystyle x=0$ 处连续，于是 $\displaystyle \forall \varepsilon  >0,\exists \delta  >0\ s.t.\ |g( x) -g( 0) |< \varepsilon ,\forall x\in ( -\delta ,+\delta )$。
+
+进而，$\displaystyle \forall \varepsilon  >0,\exists \delta  >0\ s.t.\ g( 0) -\varepsilon < g( x) < g( 0) +\varepsilon ,\forall x\in ( -\delta ,+\delta ) ,$ 同时 $\displaystyle |f_{n}( x) |< \varepsilon ( \forall n >N) ,\forall x\in [ -1,-\delta ] \cup [ \delta ,1] ,1-2\varepsilon ( 1-\delta ) \leqslant \int _{-\delta }^{\delta } f( x)\mathrm{d} x\leqslant 1$，于是有：
+
+$\displaystyle  \begin{array}{{>{\displaystyle}l}}
+g( 0) -\delta -2\varepsilon ( 1-\delta )( g( 0) +\delta ) -g( 0) -\varepsilon M\leqslant \int _{-1}^{1} f_{n}( x) g( x)\mathrm{d} x-g( 0) \leqslant g( 0) +\delta -g( 0) +\varepsilon M\\
+-\delta -2\varepsilon ( 1-\delta )( g( 0) +\delta ) -\varepsilon M\leqslant \int _{-1}^{1} f_{n}( x) g( x)\mathrm{d} x-g( 0) \leqslant \delta +\varepsilon M( \forall n >N)
+\end{array}$
+
+因为 $\displaystyle \delta $ 可以足够小，不妨假设 $\displaystyle \delta '=\min\{\delta ,\varepsilon \}$ 代替上式中的 $\displaystyle \delta $，进而不等式左右都是常数 $\displaystyle \times \varepsilon $，于是有$\displaystyle \lim _{n\rightarrow \infty }\int _{-1}^{1} f_{n}( x) g( x)\mathrm{d} x=g( 0)$。\qed 
+
+
+
+
+
+\begin{ques}
+	证明：$\displaystyle \sum _{n=0}^{\infty }\int _{0}^{1} t^{n}\sin \pi t\mathrm{d} t=\int _{0}^{1}\frac{\sin \pi t}{t}\mathrm{d} t$。
+\end{ques}
+
+
+
+
+
+
+\begin{align*}
+\sum _{n=0}^{\infty }\int _{0}^{1} t^{n}\sin \pi t\mathrm{d} t & =\int _{0}^{1}\sum _{n=0}^{\infty } t^{n}\sin \pi t\mathrm{d} t & ( 1)\\
+& =\int _{0}^{1}\frac{1}{1-t}\sin \pi t\mathrm{d} t & \\
+& =\int _{0}^{1}\frac{1}{t}\sin \pi t\mathrm{d} t & ( 2)
+\end{align*}
+
+
+（2）：换元法，$\displaystyle t'=1-t$。
+
+（1）：下面证明 $\displaystyle \sum _{n=0}^{\infty } t^{n} =\frac{1}{1-t}$ 在 $\displaystyle ( 0,1)$ 上内闭一致收敛，进而有$\displaystyle \sum _{n=0}^{\infty } t^{n}\sin \pi t=\frac{\sin \pi t}{1-t}$ 在 $\displaystyle ( 0,1)$ 上内闭一致收敛， $\displaystyle \sum _{n=0}^{\infty }\int _{0}^{1} t^{n}\sin \pi t\mathrm{d} t=\int _{0}^{1}\sum _{n=0}^{\infty } t^{n}\sin \pi t\mathrm{d} t$：
+
+
+
+对于 $\displaystyle [ a,b] \subset ( 0,1)$ 记 $\displaystyle R( k) =\sum _{n=k}^{\infty } t^{n} =\frac{t^{k}}{1-t} \leqslant \frac{a^{k}}{1-b}$，则 $\displaystyle \forall \varepsilon  >0,$ 令 $\displaystyle N=\lceil \log_{a}(( 1-b) \varepsilon ) \rceil  >0,$ 则 $\displaystyle \forall k >N\ s.t.\ \left(\frac{1}{1-t} -\sum _{n=0}^{k} t^{n}\right) \leqslant \varepsilon $，于是 $\displaystyle \sum _{n=0}^{\infty } t^{n} =\frac{1}{1-t}$ 在 $\displaystyle ( 0,1)$ 上内闭一致收敛。\qed 
+
+
+
+
+
+
+
+\begin{ques}
+	证明函数 $\displaystyle f( x) =\sum _{n=1}^{\infty }\frac{\sin\left( xe^{n}\right)}{n^{n}}$ 在 $\displaystyle ( -\infty ,+\infty )$ 内具有连续的导函数。
+\end{ques}
+
+
+
+在 $\displaystyle x\in ( -\infty ,+\infty )$ 上考虑
+
+
+\begin{equation*}
+f( x) =\sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}} =\sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{2}}\frac{1}{\left(\frac{n}{e}\right)^{n-2}}
+\end{equation*}
+
+
+对于 
+\begin{equation*}
+\frac{1}{\left(\frac{n}{e}\right)^{n-2}}
+\end{equation*}
+
+
+其关于 $\displaystyle n$ 单调且 $\displaystyle \rightrightarrows 0$，而对于
+
+
+\begin{equation*}
+\left| \sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{2}}\right| \leqslant e^{2}\left| \sum _{n=1}^{\infty }\frac{1}{n^{2}}\right| 
+\end{equation*}
+
+
+$\displaystyle \left| \sum _{n=1}^{\infty }\frac{1}{n^{2}}\right| $ 收敛，因此 $\displaystyle \sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}}$ 一致有界，由狄利克雷判别法，$\displaystyle \sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}}$ 一致收敛。
+
+并且当 $\displaystyle x=0$ 时，$\displaystyle \lim _{n\rightarrow \infty }\frac{\sin\left( xe^{n}\right)}{n^{n}} =0$ 存在，因此有：
+
+
+\begin{equation*}
+f'( x) =\left(\sum _{n=1}^{\infty }\frac{\sin\left( xe^{n}\right)}{n^{n}}\right)^{'} =\sum _{n=1}^{\infty }\left(\frac{\sin\left( xe^{n}\right)}{n^{n}}\right)^{'} =\sum _{n=1}^{\infty }\frac{e^{n}\cos\left( xe^{n}\right)}{n^{n}}
+\end{equation*}
+
+
+同时，因为 $\displaystyle \sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}}$ 一致收敛，且 $\displaystyle \frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}}$ 连续，因此 $\displaystyle \sum _{n=1}^{\infty }\frac{\cos\left( xe^{n}\right)}{\left(\frac{n}{e}\right)^{n}}$ 连续，函数 $\displaystyle f( x) =\sum _{n=1}^{\infty }\frac{\sin\left( xe^{n}\right)}{n^{n}}$ 在 $\displaystyle ( -\infty ,+\infty )$ 内具有连续的导函数。\qed 
+
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
