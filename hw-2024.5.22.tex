@@ -1,0 +1,55 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.22 作业}
+\begin{ques}
+	设 $\displaystyle f( x)$ 在一个无穷区间可被多项式逼近，则 $\displaystyle f( x)$ 必是一个多项式。
+\end{ques}
+
+
+
+因为 $\displaystyle f( x)$ 在无穷区间可被多项式逼近，因此存在多项式列 $\displaystyle P_{n}( x) \rightrightarrows f( x)$，$\displaystyle \forall \varepsilon  >0,\exists N >0\ s.t.|\ P_{n}( x) -P_{N}( x) |< \varepsilon ,\forall n >N$。
+
+$\displaystyle \ |P_{n}( x) -P_{N}( x) |$ 是一个多项式并且有界，因此是一个常数 $\displaystyle c_{n}$，于是可以固定 $\displaystyle N$，存在一个递增子列 $\displaystyle c_{n_{k}}\rightarrow c,\lim _{k\rightarrow +\infty } |P_{n_{k}}( x) -P_{N}( x) |=c\ i.e.\ f( x) -P_{n}( x) =c$，于是 $\displaystyle f( x)$ 必是一个多项式。\qed 
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 在 $\displaystyle [ 0,1]$ 单调递增（减），则其 Bernstein 多项式 $\displaystyle B_{n}( f,x)$ 也在 $\displaystyle [ 0,1]$ 单调递增（减）。
+\end{ques}
+
+
+
+\vspace{30\baselineskip}
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x) \in C[ 0,+\infty ) ,\lim _{x\rightarrow +\infty } f( x) =\ell $。证明：$\displaystyle \forall \varepsilon  >0$，存在多项式 $\displaystyle P( x)$ 使得 $\displaystyle |f( x) -P\left( e^{-x}\right) |< \varepsilon ,x\in [ 1,+\infty )$。
+\end{ques}
+
+令
+\begin{equation*}
+	g( x) =\begin{cases}
+		f( -\ln x) & \left( 0,\frac{1}{e}\right]\\
+		\ell  & 0
+	\end{cases}
+\end{equation*}
+
+则 $\displaystyle g( x) \in C\left[ 0,\frac{1}{e}\right]$ ，于是 $\displaystyle \forall \varepsilon  >0,\exists $ 多项式 $\displaystyle P( x) \ s.t.\ |g( x) -P( x) |< \varepsilon ,\forall x\in \left[ 0,\frac{1}{e}\right]$。
+
+令 $\displaystyle t=-\ln x\in [ 1,+\infty )$，有 $\displaystyle |f( t) -P\left( e^{-x}\right) |< \varepsilon ,x\in [ 1,+\infty )$。\qed 
+\ifx\allfiles\undefined
+\end{document}
+\fi
