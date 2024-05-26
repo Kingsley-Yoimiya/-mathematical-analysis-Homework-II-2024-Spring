@@ -1,0 +1,111 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.20 作业}
+\begin{ques}
+	求函数 $\displaystyle \cos( \alpha +\beta x)$ 的麦克劳林展式，其中 $\displaystyle \alpha ,\beta $ 为非零常数。
+\end{ques}
+\begin{align*}
+	\cos( \alpha +\beta x) & =\cos \alpha \cos \beta x-\sin \alpha \sin \beta x\\
+	& =\sum _{n=0}^{+\infty } c_{n}\frac{\beta ^{n} x^{n}}{n!}\\
+	c_{n} & =\begin{cases}
+		( -1)^{k}\cos \alpha  & n=2k\\
+		( -1)^{k+1}\sin \alpha  & n=2k+1
+	\end{cases}
+\end{align*}
+\qed 
+
+
+
+
+
+\begin{ques}
+	求函数 $\displaystyle \arctan\frac{2( 1-x)}{1+4x}$的麦克劳林展式。
+\end{ques}
+\begin{align*}
+	\arctan\frac{2( 1-x)}{1+4x} & =\arctan 2-\arctan 2x\\
+	& =\arctan 2-\sum _{n=0}^{+\infty }\frac{( -1)^{n} 2^{2n+1} x^{2n+1}}{2n+1}
+\end{align*}\qed 
+
+
+
+\begin{ques}
+	求函数 $\displaystyle f( x) =\sum _{n=1}^{+\infty }\frac{1}{n( n+1)}\left(\frac{x+1}{2}\right)^{n}$ 的麦克劳林展式。
+\end{ques}
+\begin{align*}
+	f( x) & =\sum _{n=1}^{+\infty }\frac{1}{n( n+1)}\left(\frac{x+1}{2}\right)^{n}\\
+	& =\sum _{n=1}^{+\infty }\frac{1}{n}\left(\frac{x+1}{2}\right)^{n} -\sum _{n=1}^{+\infty }\frac{1}{n+1}\left(\frac{x+1}{2}\right)^{n}\\
+	& =-\ln\left( 1-\frac{x+1}{2}\right) -\frac{-\ln\left( 1-\frac{x+1}{2}\right)}{\frac{x+1}{2}} +1\\
+	& =-\ln( 1-x) +\ln 2+1-2\frac{\ln( 1-x)}{x+1} -2\frac{1}{x+1}\ln 2\\
+	& =\sum _{n=1}^{+\infty }\frac{1}{n} x^{n} +\ln 2+1-2\sum _{n=1}^{+\infty }\sum _{k=1}^{n}\frac{( -1)^{n-k}}{k} x^{n} -( 2\ln 2)\sum _{n=0}^{+\infty }( -1)^{n} x^{n}\\
+	& =\sum _{n=1}^{+\infty }\left(\frac{1}{n} -2\sum _{k=1}^{n}\frac{( -1)^{n-k}}{k} +( -1)^{n+1} 2\ln 2\right) x^{n} +1-\ln 2
+\end{align*}
+\qed
+
+
+
+\begin{ques}
+	设在闭区间 $\displaystyle [ a,b]$ 上的函数 $\displaystyle f( x)$ 的各阶导数存在且非负，证明 $\displaystyle f( x) =\sum _{n=0}^{+\infty }\frac{f^{( n)}( a)}{n!}( x-a)^{n} ,\forall x\in [ a,b]$。
+\end{ques}
+
+使用泰勒展开的积分余项：
+\begin{gather*}
+	f( x) =\sum _{k=0}^{n}\frac{f^{( k)}( a)}{k!}( x-a)^{k} +\int _{a}^{x}\frac{f^{( n+1)}( t)}{( n+1) !}( x-t)^{n}\mathrm{d} t\\
+	f( x) =\sum _{k=0}^{n}\frac{f^{( k)}( a)}{k!}( x-a)^{k} +\frac{( x-a) !}{( n+1) !}\int _{a}^{x} f^{( n+1)}( t)\left(\frac{x-t}{x-a}\right)^{n}\mathrm{d} t\\
+	R_{n}( x) =\frac{( x-a) !}{( n+1) !}\int _{a}^{x} f^{( n+1)}( t)\left(\frac{x-t}{x-a}\right)^{n}\mathrm{d} t
+\end{gather*}
+\begin{equation*}
+	\frac{x-t}{x-a} \leqslant \frac{b-x+x-t}{b-x+x-a} =\frac{b-t}{b-a}
+\end{equation*}
+
+
+又因为 $\displaystyle f( x)$ 的各阶导数存在且非负，于是 $\displaystyle f^{( n+1)}( t)$ 非负且单调递增，有：
+
+\begin{align*}
+	0\leqslant R_{n}( x) & =\frac{( x-a) !}{( n+1) !}\int _{a}^{x} f^{( n+1)}( t)\left(\frac{x-t}{x-a}\right)^{n}\mathrm{d} t\\
+	& \leqslant \frac{( x-a) !}{( n+1) !}\int _{a}^{x} f^{( n+1)}( b)\left(\frac{b-t}{b-a}\right)^{n}\mathrm{d} t\\
+	& =\frac{( x-a) !}{( b-a) !} R_{n}( b)
+\end{align*}
+
+而
+\begin{equation*}
+	R_{n}( b) =R_{n-1}( b) -\frac{f^{( n)}( a)}{n!}( b-a)^{n} \leqslant R_{n-1}( b) \leqslant R_{n-2}( b) \leqslant \cdots \leqslant R_{0}( b) =f( b) -f( a) =M
+\end{equation*}
+
+
+进而
+
+
+\begin{equation*}
+	R_{n}( x) \leqslant \frac{( x-a) !}{( b-a) !} M\rightarrow 0\left( n\rightarrow +\infty ,x\neq b\right)
+\end{equation*}
+
+
+当 $\displaystyle x=b$ 时，因为 $\displaystyle f( x) =\sum _{n=0}^{+\infty }\frac{f^{( n)}( a)}{n!}( x-a)^{n} ,\forall x\in [ a,b)$，由阿贝尔定理推论 $\displaystyle f( b) =\lim _{x\rightarrow b^{-}}\sum _{n=0}^{+\infty }\frac{f^{( n)}( a)}{n!}( x-a)^{n} =\sum _{n=0}^{+\infty }\frac{f^{( n)}( a)}{n!}( b-a)^{n}$。\qed 
+
+
+
+
+
+\begin{ques}
+	设非常数函数 $\displaystyle f( x)$ 在 $\displaystyle ( a,b)$ 内每一点都可以展成幂级数。试证明 $\displaystyle f( x)$ 的零点集在 $\displaystyle ( a,b)$ 内没有聚点。
+\end{ques}
+
+
+
+对于 $\displaystyle f( x)$ 的任一零点 $\displaystyle x_{0}$，在 $\displaystyle x_{0}$ 展开为幂级数 $\displaystyle f( x) =\sum _{n=1}^{+\infty } a_{n}( x-x_{0})^{n} =( x-x_{0})^{m} g( x)$，取最小的 $\displaystyle m$ 使得 $\displaystyle g( x_{0}) \neq 0$（因为 $\displaystyle f( x)$ 非常数，一定取得到。
+
+$\displaystyle g( x)$ 也是幂级数，同时 $\displaystyle g( x) ,( x-x_{0})^{m}$ 都是连续的，因此 $\displaystyle \exists \delta  >0\ s.t.\ f( x) \neq 0,\forall x\in ( x_{0} -\delta ,x_{0} +\delta )$。因此在任意零点附近都没有别的零点，$\displaystyle f( x)$ 的零点集在 $\displaystyle ( a,b)$ 内没有聚点。\qed 
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
