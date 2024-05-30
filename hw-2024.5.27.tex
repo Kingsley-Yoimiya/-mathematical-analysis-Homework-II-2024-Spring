@@ -1,0 +1,159 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.27 作业}
+
+\begin{ques}
+	求 $\displaystyle 2\pi $ 周期函数的傅里叶级数：$\displaystyle f( x) =|x|,-\pi \leqslant x< \pi $。
+\end{ques}
+
+
+
+因为是偶函数，仅需要求 $\displaystyle \cos nx$ 系数 $\displaystyle a_{n}$。
+
+
+\begin{align*}
+	a_{0} & =\frac{1}{\pi }\int _{-\pi }^{\pi } |x|\mathrm{d} x\\
+	& =\pi \\
+	a_{n} & =\frac{1}{\pi }\int _{-\pi }^{\pi } |x|\cos nx\mathrm{d} x\\
+	& =\frac{2}{\pi }\int _{0}^{\pi } x\cos nx\mathrm{d} x\\
+	& =\frac{2}{n\pi }\left( x\sin nx| _{0}^{\pi } -\int _{0}^{\pi }\sin nx\mathrm{d} x\right)\\
+	& =\left. \frac{2}{n^{2} \pi }\cos nx\middle| _{0}^{\pi }\right. \\
+	& =\begin{cases}
+		-\frac{4}{n^{2} \pi } & n=2k-1\\
+		0 & n=2k
+	\end{cases} ,k\in N^{*}
+\end{align*}
+
+因此，$\displaystyle f( x) \sim \frac{\pi }{2} -\frac{4}{\pi }\sum _{n=1}^{+\infty }\frac{\cos( 2n-1) x}{( 2n-1)^{2}}$。\qed 
+
+
+
+\begin{ques}
+	求 $\displaystyle 2\pi $ 周期函数的傅里叶级数：$\displaystyle f( x) =\begin{cases}
+	\frac{\pi }{4} & 0< x< \pi \\
+	-\frac{\pi }{4} & -\pi \leqslant x\leqslant 0
+\end{cases}$。
+\end{ques}
+
+
+
+因为是奇函数，仅需要求 $\displaystyle \sin nx$ 系数 $\displaystyle b_{n}$。
+
+
+\begin{align*}
+	b_{n} & =\frac{1}{\pi }\int _{-\pi }^{\pi } f( x)\sin nx\mathrm{d} x\\
+	& =\frac{2}{\pi }\int _{0}^{\pi }\frac{\pi }{4}\sin nx\mathrm{d} x\\
+	& =-\frac{1}{2n}(\cos nx | _{0}^{\pi })\\
+	& =\begin{cases}
+		\frac{1}{n} & ,n=2k-1\\
+		0 & ,n=2k
+	\end{cases} ,k\in N^{*}
+\end{align*}
+
+于是，$\displaystyle f( x) \sim \sum _{n=1}^{+\infty }\frac{\sin( 2n-1) x}{2n-1}$。\qed 
+
+
+
+
+
+\begin{ques}
+	求 $\displaystyle 2\pi $ 周期函数的正弦和余弦级数：$\displaystyle f( x) =\sin x,0\leqslant x\leqslant \pi $。
+\end{ques}
+
+
+
+
+
+对于正弦级数，$\displaystyle f( x) =\sin x$。
+
+对于余弦级数，设 $\displaystyle f( x) =\frac{a_{0}}{2} +\sum _{n=1}^{+\infty } a_{n}\cos nx\mathrm{d} x$，则有
+
+
+\begin{align*}
+	a_{0} & =\frac{2}{\pi }\int _{0}^{\pi }\sin x\mathrm{d} x\\
+	& =\frac{4}{\pi }\\
+	a_{n} & =\frac{2}{\pi }\int _{0}^{\pi }\sin x\cos nx\mathrm{d} x\\
+	& =\frac{2}{n^{2} \pi }\left[\cos x\cos nx | _{0}^{\pi } +\int _{0}^{\pi }\cos nx\sin x\mathrm{d} x\right]\\
+	& =\begin{cases}
+		0 & ,n=2k-1\\
+		-\frac{4}{\left( n^{2} -1\right) \pi } & ,n=2k
+	\end{cases} ,k\in N^{*}
+\end{align*}
+
+因此，$\displaystyle f( x) \sim \frac{2}{\pi } -\frac{4}{\pi }\sum _{n=1}^{+\infty }\frac{\cos 2nx}{\left( 4n^{2} -1\right) \pi }$。\qed 
+
+
+
+
+
+
+
+\begin{ques}
+	设 $\displaystyle f( x)$ 为 $\displaystyle \left( 0,\frac{\pi }{2}\right)$ 上的 Riemann 可积或绝对可积函数，请适当延拓 $\displaystyle f( x)$ 到区间 $\displaystyle ( -\pi ,\pi )$ 上，使 Fourier 级数具有形式 $\displaystyle \sum _{n=1}^{\infty } a_{2n-1}\cos( 2n-1) x$。
+\end{ques}
+
+
+
+考虑函数
+
+
+\begin{equation*}
+	g( x) =\begin{cases}
+		f( \pi +x) & x\in \left( -\pi ,-\frac{\pi }{2}\right)\\
+		0 & x=-\frac{\pi }{2}\\
+		f( -x) & x\in \left( -\frac{\pi }{2} ,0\right)\\
+		0 & x=0\\
+		f( x) & x\in \left( 0,\frac{\pi }{2}\right)\\
+		0 & x=\frac{\pi }{2}\\
+		-f( \pi -x) & x\in \left(\frac{\pi }{2} ,\pi \right)
+	\end{cases} ,x\in ( -\pi ,\pi )
+\end{equation*}
+
+
+有 $\displaystyle g( x)$ 是偶函数，同时因为$\displaystyle f( x)$ 为 $\displaystyle \left( 0,\frac{\pi }{2}\right)$ 上的 Riemann 可积或绝对可积函数，$\displaystyle g( x)$ 也是 \ $\displaystyle \left( 0,\frac{\pi }{2}\right)$ 上的 Riemann 可积或绝对可积函数，记 $\displaystyle G( x) =1+\int _{0}^{x} g( t)\mathrm{d} t,h( x) =G'( x)$。
+
+首先有 $\displaystyle g( x)$ 的 Fourier 级数仅仅 $\displaystyle \cos$ 前面有系数，于是 $\displaystyle \int _{-\pi }^{\pi } g( x)\cos nx\mathrm{d} x=2\int _{0}^{\pi } g( x)\cos nx\mathrm{d} x$。
+
+对于 $\displaystyle \int _{0}^{\pi } h( x)\cos nx\mathrm{d} x$，有：
+\begin{align*}
+	\int _{0}^{\pi } h( x)\cos nx\mathrm{d} x & =\int _{0}^{\pi }\cos nx\mathrm{d} G( x)\\
+	& =( G( x)\cos nx | _{0}^{\pi }) -\frac{1}{n}\int _{0}^{\pi } G( x)\mathrm{d}\cos nx\\
+	& =\frac{n-1}{n}( G( x)\cos nx | _{0}^{\pi }) +\frac{1}{n}\int _{0}^{\pi } h( x)\cos nx\mathrm{d} x\\
+	& =G( x)\cos nx | _{0}^{\pi }\\
+	& =G( x)\cos nx-G( 0)\\
+	& =\begin{cases}
+		-G( \pi ) -G( 0) & n=2k-1\\
+		G( \pi ) -G( 0) & n=2k
+	\end{cases} ,k\in N^{*}\\
+	& =\begin{cases}
+		-G( \pi ) -G( 0) & n=2k-1\\
+		0 & n=2k
+	\end{cases} ,k\in N^{*}
+\end{align*}
+
+
+接下来我们证明 $\displaystyle \int _{0}^{\pi } g( x)\cos nx\mathrm{d} x=\int _{0}^{\pi } h( x)\cos nx\mathrm{d} x$。
+
+考虑 $\displaystyle \int _{0}^{\pi } g( x)\cos nx\mathrm{d} x-\int _{0}^{\pi } h( x)\cos nx\mathrm{d} x=\int _{0}^{\pi }( g( x) -h( x))\cos nx\mathrm{d} x$，因为 $\displaystyle g( x)$ 可积，由勒贝格引理，$\displaystyle g( x)$ 只有有限个间断点，于是 $\displaystyle ( g( x) -h( x))\cos nx$ 只有有限个点 $\displaystyle \neq 0$，进而 $\displaystyle \int _{0}^{\pi }( g( x) -h( x))\cos nx\mathrm{d} x$ 可以无限小 $\displaystyle =0$。
+
+于是有 $\displaystyle \int _{0}^{\pi } g( x)\cos nx\mathrm{d} x=\begin{cases}
+	-G( \pi ) -G( 0) & n=2k-1\\
+	0 & n=2k
+\end{cases} ,k\in N^{*}$，于是对于 $\displaystyle f( x)$ 的延拓 $\displaystyle g( x)$：
+
+
+\begin{equation*}
+	g( x) \sim \sum _{n=1}^{+\infty }\frac{-G( \pi ) -G( 0)}{\pi }\cos( 2n-1) x
+\end{equation*}
+\qed 
+\ifx\allfiles\undefined
+\end{document}
+\fi
