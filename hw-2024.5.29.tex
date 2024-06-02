@@ -1,0 +1,104 @@
+%-*-    coding: UTF-8   -*-
+% !TEX program = xelatex
+\ifx\allfiles\undefined
+\input{prework.tex}
+\date{}
+\author{尹锦润}
+\begin{document}
+\maketitle
+\fi
+
+\section{2024.5.29 作业}
+\begin{ques}
+	证明：（1）$\displaystyle \ln\left| 2\sin\frac{x}{2}\right| =-\sum _{n=1}^{\infty }\frac{\cos nx}{n} ,x\neq 2k\pi ,k\in \mathbb{Z} ;$（2）$\displaystyle \ln 2=\sum _{n=1}^{+\infty }\frac{( -1)^{n-1}}{n}$。
+\end{ques}
+
+
+
+对于 （1），先求 $\displaystyle \ln\left| \sin\frac{x}{2}\right| $ 的傅里叶级数：
+
+
+\begin{align*}
+	b_{n} & =0,( n=1,2,\cdots )\\
+	a_{0} & =\frac{1}{\pi }\int _{-\pi }^{\pi }\ln\left| \sin\frac{x}{2}\right| \mathrm{d} x\\
+	& =\frac{2}{\pi }\int _{0}^{\pi }\ln\left(\sin\frac{x}{2}\right)\mathrm{d} x
+\end{align*}
+
+\begin{align*}
+	I & =\int _{0}^{\pi }\ln\left(\sin\frac{x}{2}\right)\mathrm{d} x\\
+	2I & =\int _{0}^{\pi }\ln\left(\sin\frac{x}{2}\right)\mathrm{d} x+\int _{0}^{\pi }\ln\left(\cos\frac{x}{2}\right)\mathrm{d} x\\
+	& =\int _{0}^{\pi }\ln\left(\sin\frac{x}{2}\cos\frac{x}{2}\right)\mathrm{d} x\\
+	& =\int _{0}^{\pi }\ln\left(\frac{\sin x}{2}\right)\mathrm{d} x\\
+	& =\int _{0}^{\pi }\ln\sin x\mathrm{d} x-\int _{0}^{\pi }\ln 2\mathrm{d} x\\
+	& =\int _{0}^{\frac{\pi }{2}}\ln\sin x\mathrm{d} x+\int _{0}^{\frac{\pi }{2}}\ln\sin\left( x+\frac{\pi }{2}\right)\mathrm{d} x-\int _{0}^{\pi }\ln 2\mathrm{d} x\\
+	& =\frac{I}{2} +\frac{I}{2} -\int _{0}^{\pi }\ln 2\mathrm{d} x\\
+	I & =-\pi \ln 2
+\end{align*}
+
+
+因此：
+
+
+\begin{equation*}
+	a_{0} =-2\ln 2
+\end{equation*}
+
+
+对于
+
+
+\begin{align*}
+	a_{n} & =\frac{1}{\pi }\int _{-\pi }^{\pi }\ln\left| \sin\frac{x}{2}\right| \cos nx\mathrm{d} x & \\
+	& =\frac{2}{\pi }\int _{0}^{\pi }\ln\left(\sin\frac{x}{2}\right)\cos nx\mathrm{d} x & \\
+	& =\frac{4}{\pi }\int _{0}^{\frac{\pi }{2}}\ln(\sin x)\cos 2nx\mathrm{d} x & \\
+	& =\frac{4}{\pi }\frac{1}{2n}\int _{0}^{\frac{\pi }{2}}\ln(\sin x)\mathrm{d}\sin 2nx & \\
+	& =-\frac{2}{n\pi }\int _{0}^{\frac{\pi }{2}}\frac{\sin 2nx\cos x}{\sin x}\mathrm{d} x & \\
+	& =-\frac{2}{n\pi }\int _{0}^{\frac{\pi }{2}}\frac{\sin( 2n+1) x+\sin( 2n-1) x}{2\sin x}\mathrm{d} x & ( 1)\\
+	& =-\frac{1}{n} & 
+\end{align*}
+（1）：$\displaystyle \forall n,\int _{0}^{\frac{\pi }{2}}\frac{\sin\left( n+\frac{1}{2}\right) x}{2\sin\frac{x}{2}} =\frac{\pi }{2}$。
+
+因此有：
+
+
+\begin{gather*}
+	\ln\left| \sin\frac{x}{2}\right| \sim -\ln 2-\sum _{n=1}^{+\infty }\frac{\cos nx}{n}\\
+	\ln\left| 2\sin\frac{x}{2}\right| \sim -\sum _{n=1}^{+\infty }\frac{\cos nx}{n}
+\end{gather*}
+
+
+同时，我们注意到 $\displaystyle \ln\left| 2\sin\frac{x}{2}\right| $ 在 $\displaystyle ( -\pi ,0)$ 和 $\displaystyle ( 0,\pi )$ 上单调，在 $\displaystyle ( -\pi ,\pi )$ 上分段单调，因此 $\displaystyle \ln\left| 2\sin\frac{x}{2}\right| =-\sum _{n=1}^{+\infty }\frac{\cos nx}{n} ,x\in ( -\pi ,\pi )$，又因为 $\displaystyle \ln\left| 2\sin\frac{x}{2}\right| $ 是 $\displaystyle T=2\pi $ 的周期函数，于是 $\displaystyle \ln\left| 2\sin\frac{x}{2}\right| =-\sum _{n=1}^{+\infty }\frac{\cos nx}{n} ,x\in ( -\pi ,\pi ) ,x\neq 2k\pi ,k\in \mathbb{Z}$。\qed 
+
+对于 （2）：令 $\displaystyle x=\pi $，带入原式得 $\displaystyle \ln 2=\sum _{n=1}^{+\infty }\frac{( -1)^{n-1}}{n}$。\qed 
+
+
+
+
+
+\begin{ques}
+	决定出使下式成立的 $\displaystyle x$ 范围：$\displaystyle x^{2} =\frac{\pi ^{2}}{3} +4\sum _{n=1}^{\infty }( -1)^{n}\frac{\cos nx}{n^{2}}$。由此求出 $\displaystyle \sum _{n=1}^{+\infty }\frac{( -1)^{n-1}}{n^{2}}$ 的闭式。
+\end{ques}
+
+
+
+不难发现 $\displaystyle \frac{\pi ^{2}}{3} +4\sum _{n=1}^{\infty }( -1)^{n}\frac{\cos nx}{n^{2}}$ 是函数 $\displaystyle x^{2} ,x\in [ -\pi ,\pi ]$ 的傅里叶级数。
+
+因为 $\displaystyle x^{2}$ 在 $\displaystyle [ -\pi ,\pi ]$ 上分段单调，于是有：
+
+
+\begin{equation*}
+	\frac{\pi ^{2}}{3} +4\sum _{n=1}^{\infty }( -1)^{n}\frac{\cos nx}{n^{2}} =\begin{cases}
+		x^{2} & ,x\in ( -\pi ,\pi )\\
+		\pi ^{2} & ,x=\pm \pi 
+	\end{cases}
+\end{equation*}
+
+
+而对于 $\displaystyle x\in ( -\infty ,-\pi ) \cup ( \pi ,+\infty )$，因为傅里叶级数周期为 $\displaystyle 2\pi $，于是 $ $$\displaystyle \frac{\pi ^{2}}{3} +4\sum _{n=1}^{\infty }( -1)^{n}\frac{\cos nx}{n^{2}} \neq x^{2}$。
+
+因此成立的范围是 $\displaystyle [ -\pi ,\pi ]$。\qed 
+
+将 $\displaystyle x=0$ 带入，得到 $\displaystyle 0=\frac{\pi ^{2}}{3} +4\sum _{n=1}^{\infty }( -1)^{n}\frac{1}{n^{2}} \Rightarrow \sum _{n=1}^{+\infty }\frac{( -1)^{n-1}}{n^{2}} =\frac{\pi ^{2}}{12}$。\qed 
+\ifx\allfiles\undefined
+\end{document}
+\fi
